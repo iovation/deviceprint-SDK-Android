@@ -28,39 +28,43 @@
 
 <thead>
 <tr>
-	<th>    </th>
-	<th>    </th>
+	<th>         </th>
+	<th>                             </th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 	<td> <strong>SDK Filename</strong>    </td>
-	<td> fraudforce&#8211;lib&#8211;release&#8211;3.0.1.aar </td>
+	<td> fraudforce-lib-release-3.1.0.aar                     </td>
 </tr>
 <tr>
-	<td> <strong>Version</strong>     </td>
-	<td> 3.0.1    </td>
+	<td> <strong>Version</strong>      </td>
+	<td> 3.1.0                            </td>
 </tr>
 <tr>
-	<td> <strong>Package</strong>     </td>
-	<td> com.iovation.mobile.android.FraudForce </td>
+	<td> <strong>Package</strong>      </td>
+	<td> com.iovation.mobile.android.FraudForce                   </td>
 </tr>
 <tr>
 	<td> <strong>Android SDK Dependencies</strong> </td>
-	<td> Android SDK 4.1 or higher (SDK level 16) </td>
+	<td> Android SDK 4.1 or higher (SDK level 16)                   </td>
 </tr>
 <tr>
 	<td> <strong>Library Dependencies</strong>  </td>
-	<td> None </td>
+	<td> None                            </td>
 </tr>
 <tr>
 	<td> <strong>Required Permissions</strong>  </td>
-	<td> None    </td>
+	<td> None                            </td>
 </tr>
 <tr>
 	<td> <strong>Optional Permissions</strong>  </td>
 	<td> BLUETOOTH, ACCESS_WIFI_STATE, READ_PHONE_STATE, ACCESS_FINE_LOCATION, GET_ACCOUNTS, ACCESS_NETWORK_STATE </td>
+</tr>
+<tr>
+	<td> <strong>Supported NDK Architectures</strong> </td>
+	<td> x86, x86_64, arm64-v8a, armeabi-v7a                    </td>
 </tr>
 </tbody>
 </table>
@@ -69,18 +73,18 @@
 <p><strong>NOTE</strong> If the permissions listed are not required by the application, the values collected using those permissions will be ignored. The permissions are not required to obtain a usable blackbox, but they do help obtain some unique device information.</p>
 </blockquote>
 
-<p>Version 3.0.1 of the iovation FraudForce SDK for Android supports Android 4.1 or higher.</p>
+<p>Version 3.1.0 of the iovation FraudForce SDK for Android supports Android 4.1 or higher.</p>
 
 <h2 id="installingthefraudforcesdkforandroid">Installing the FraudForce SDK for Android</h2>
 
 <ol>
-<li><p>Download iovation-android-sdk-3.0.1.zip from here: <a href="https://github.com/iovation/deviceprint-SDK-Android">iovation Mobile SDK for Android</a>. </p></li>
-<li><p>Unzip iovation-android-sdk-3.0.1.zip.</p></li>
+<li><p>Download iovation-android-sdk-3.1.0.zip from here: <a href="https://github.com/iovation/deviceprint-SDK-Android">iovation Mobile SDK for Android</a>. </p></li>
+<li><p>Unzip iovation-android-sdk-3.1.0.zip.</p></li>
 <li><p>Depending on your IDE, do one of the following:</p>
 
 <ul>
 <li><p>In <strong>Eclipse and Maven</strong>, deploy the AAR file to your local Maven repository, using maven-deploy. For more information, see <a href="http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html">Guide to installing 3rd party JARs</a>.</p></li>
-<li><p>If you are using <strong>Android Studio with Gradle</strong>, add the <em>fraudforce-lib-release-3.0.1.aar</em> file to your application module&#8217;s libs directory. Then, edit the <em>build.gradle</em> file in order to add the libs directory as a flat-file repository to the <code>buildscript</code> and <code>repository</code> sections. This makes the fraudforce-lib-release-3.0.0.aar file accessible to Gradle.</p>
+<li><p>If you are using <strong>Android Studio with Gradle</strong>, add the <em>fraudforce-lib-release-3.1.0.aar</em> file to your application module&#8217;s libs directory. Then, edit the <em>build.gradle</em> file in order to add the libs directory as a flat-file repository to the <code>buildscript</code> and <code>repository</code> sections. This makes the fraudforce-lib-release-3.0.0.aar file accessible to Gradle.</p>
 
 <pre><code>buildscript {
     repositories {
@@ -97,11 +101,11 @@ repositories {
 }
 </code></pre>
 
-<p>Also in the application module&#8217;s <code>build.gradle</code> file, make sure that fraudforce-lib-release-3.0.1 is a compile-time dependency:</p>
+<p>Also in the application module&#8217;s <code>build.gradle</code> file, make sure that fraudforce-lib-release-3.1.0 is a compile-time dependency:</p>
 
 <pre><code>dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile(name:'fraudforce-lib-release-3.0.1', ext:'aar')
+    compile(name:'fraudforce-lib-release-3.1.0', ext:'aar')
 }
 </code></pre>
 
@@ -123,6 +127,10 @@ import com.iovation.mobile.android.FraudForceManager;
 
 <blockquote>
 <p><strong>NOTE</strong> Please review the Network Calls section of this document before enabling network calls.</p>
+</blockquote>
+
+<blockquote>
+<p><strong>IMPORTANT</strong> Please contact your iovation customer success team representative to receive your subscriber key.</p>
 </blockquote>
 
 <pre><code>FraudForceConfiguration configuration = new FraudForceConfiguration.Builder()
@@ -268,9 +276,9 @@ fraudForceManager.initialize(configuration, context);
 <h2 id="compilingthesampleappinandroidstudio">Compiling The Sample App in Android Studio</h2>
 
 <ol>
-<li><p>Log into the Administration Console and download fraudforce-lib-release-3.0.1.zip from here: <a href="https://github.com/iovation/deviceprint-SDK-Android">iovation Mobile SDK for Android</a>.</p></li>
+<li><p>Log into the Administration Console and download fraudforce-lib-release-3.1.0.zip from here: <a href="https://github.com/iovation/deviceprint-SDK-Android">iovation Mobile SDK for Android</a>.</p></li>
 <li><p>In Android Studio, select File | Open or click <strong>Open Existing Android Studio Project</strong> from the quick-start screen.</p></li>
-<li><p>From the directory where you unzipped fraudforce-lib-release-3.0.1.zip, open the <strong>android-studio-sample-app</strong> directory.</p></li>
+<li><p>From the directory where you unzipped fraudforce-lib-release-3.1.0.zip, open the <strong>android-studio-sample-app</strong> directory.</p></li>
 <li><p>In the project navigation view, open <code>src/main/java/com/iovation/mobile/android/sample/MainActivity.java</code></p></li>
 <li><p>Right-click the file editing view and select <em>Run Main Activity</em>.</p>
 
@@ -284,6 +292,14 @@ fraudForceManager.initialize(configuration, context);
 </ol>
 
 <h2 id="changelog">Changelog</h2>
+
+<h3 id="3.1.0">3.1.0</h3>
+
+<ul>
+<li><p>Support for Android 9.0 Pie.</p></li>
+<li><p>Fix for issue related to the Turkish character set.</p></li>
+<li><p>Improved location data collection process.</p></li>
+</ul>
 
 <h3 id="3.0.1">3.0.1</h3>
 
