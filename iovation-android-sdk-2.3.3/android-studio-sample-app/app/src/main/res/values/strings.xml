@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="header">click button to generate blackbox:</string>
+    <string name="printMe">Generate Blackbox</string>
+    <string name="app_name">iovation deviceprint</string>
+    <string name="wv_name">iovation webview</string>
+    <string name="bbResultLabel">bb result:</string>
+    <string name="printingWaitMsg">please wait will we print your device</string>
+    <string name="action_settings">SETTINGS</string>
+</resources>

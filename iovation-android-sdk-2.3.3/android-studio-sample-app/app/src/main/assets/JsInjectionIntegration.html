@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My HTML</title>
+</head>
+<body>
+<h1>MyHTML</h1>
+<div id="bb"></div>
+
+<form method="POST" id="ioForm">
+    <fieldset>
+        <input type="textarea" name="account" id="account" value="wvTest" />
+        <input TYPE="textarea" NAME="body" id="bbbody" />
+    </fieldset>
+    <!--<input TYPE="submit"></input>-->
+</form>
+
+<button onclick="submitBb('bb')">Submit Blackbox</button>
+
+<script type="text/javascript">
+function submitBb(id) {
+                inject_bb("bbbody");
+
+                var output = document.getElementById("bbbody");
+            }
+
+function inject_bb(id) {
+    var iframe = document.createElement('IFRAME');
+    iframe.setAttribute('src', 'iov://blackbox/fill#' + id);
+    iframe.name="ioOut";
+    document.documentElement.appendChild(iframe);
+    iframe.parentNode.removeChild(iframe);
+    iframe = null;
+}
+</script>
+
+
+<script type="text/javascript" src="iov://test/url/"/>
+
+</body>
+</html>
