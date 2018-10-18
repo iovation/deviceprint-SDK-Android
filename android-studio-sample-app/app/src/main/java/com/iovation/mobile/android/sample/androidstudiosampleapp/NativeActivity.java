@@ -5,10 +5,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import static com.iovation.mobile.android.DevicePrint.start;
-import static com.iovation.mobile.android.DevicePrint.getBlackbox;
 
-public class MainActivity extends Activity {
+import com.iovation.mobile.android.FraudForceConfiguration;
+import com.iovation.mobile.android.FraudForceManager;
+
+public class NativeActivity extends Activity {
 
     /**
      * Called when the activity is first created.
@@ -19,8 +20,10 @@ public class MainActivity extends Activity {
      */
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        start(getApplicationContext());
         super.onCreate(savedInstanceState);
+
+        FraudForceManager.getInstance().refresh(getApplicationContext());
+
         setContentView(R.layout.activity_main);
     }
 
@@ -37,7 +40,7 @@ public class MainActivity extends Activity {
     private class PrintThread extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... voids) {
-            return getBlackbox(getApplicationContext());
+            return FraudForceManager.getInstance().getBlackbox(getApplicationContext());
         }
 
         @Override

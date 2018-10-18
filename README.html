@@ -1,281 +1,66 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
 	<meta charset="utf-8"/>
-	<title>iovation Android SDK Library</title>
-    <style>/*STYLES FOR STANDARD HTML TAGS*/
-
-body {margin-left:16px;
-margin-right:12px;
-margin-top:12px;
-margin-bottom:12px;
-font-family:proxima nova, proxima, helvetica, arial, sans-serif;
-vertical-align:top;
-color:#000;
-background: #fff;
-}
-
-h1 {font-family:proxima nova, proxima, helvetica, arial, sans-serif;
-font-weight:normal;
-font-size:24pt;
-color:#165E53;
-vertical-align:top;
-margin-bottom:14px;
-margin-top:24px;
-letter-spacing:normal;
-}
-
-h2{font-family:proxima nova, proxima, helvetica, arial, sans-serif;
-font-weight:700;
-font-size:18pt;
-color:#165E53;
-vertical-align:top;
-margin-bottom:14px;
-margin-top:24px;
-letter-spacing:normal;
-}
-
-h3{font-family:proxima nova, proxima, helvetica, arial, sans-serif;
-font-weight:normal;
-font-size:15pt;
-margin-bottom:12px;
-margin-top:22px;
-color:#219181;
-letter-spacing:normal;
-}
-
-h4{font-size:12pt;
-font-family:proxima nova, proxima, helvetica, arial, sans-serif;
-color:#333;
-margin-bottom:8px;
-margin-top:20px;
-font-weight:bold;
-letter-spacing:normal;
-}
-
-h5{font-size:12pt;
-font-family:proxima nova, proxima, helvetica, arial, sans-serif;
-color:#333;
-margin-bottom:8px;
-margin-top:16px;
-font-weight:bold;
-font-style:italic;
-}
-
-p{
-	font-size: 14px;
-	color: #000;
-	font-family: proxima nova, proxima, helvetica, arial, sans-serif;
-	font-weight: normal;
-	margin-top:4px;
-	margin-bottom:4px;
-	line-height:15px;
-}
-
-ul{margin-left:0px;
-font-family:proxima nova, proxima, helvetica, arial, sans-serif;
-font-weight:normal;
-font-size:14px;
-margin-top:8px;
-margin-bottom:6px;
-}
-
-
-}
-
-
-ol{margin-left:0px;
-font-family:proxima nova, proxima, helvetica, arial, sans-serif;
-font-weight:normal;
-font-size:14px;
-margin-top:10px;
-margin-bottom:6px;
-}
-
-li{margin-top:8px;
-margin-bottom:6px;
-	line-height:15px;
-letter-spacing:normal;
-}
-
-a.link{color:#197F00;
-font-weight:300;
-}
-
-a.hover{color:#999;
-font-weight:300;
-}
-
-a.visited{color:#063;
-font-weight:300;
-}
-
-a {color:#197F00;
-font-weight:300;
-}
-
-a.prev{color:#063;
-}
-
-a.next{color:#053;
-}
-
-a:hover {color:#999}
-a:active {color:#999}
-a.active {color:#999}
-img{margin-bottom:6px;
-}
-
-table{border-spacing:0px;
-	border:1px solid #9BB0A3;
-	margin-top:12px;
-	margin-bottom:12px;
-	border-width:thin;}
-
-tr{font-family:proxima, helvetica, arial, sans-serif;}
-
-th{background-color:#79806C;
-font-family:proxima nova, proxima, helvetica, arial, sans-serif;
-padding-left:2px;
-padding-right:2px;
-padding-top:2px;
-padding-bottom:2px;
-line-height: 15pt;
-    font-style:bold;
-	text-align:left;
-valign:top;
-color:white;
-	border:1px solid #9BB0A3;}
-
-th p {
-color:white;
-}
-
-td{text-align:left;
-	padding-left:2px;
-padding-right:1px;
-padding-top:2px;
-vertical-align:top;
-padding-bottom:1px;
-border:1px solid #9BB0A3;
-border-width:thin;
-letter-spacing:normal;
-	line-height:15px;
-font-family:proxima nova, proxima, helvetica, arial, sans-serif;
-}
-
-td p{
-	padding-left:0px;
-padding-right:0px;
-padding-top:0px;
-vertical-align:top;
-padding-bottom:0px;
-letter-spacing:normal;
-	line-height:15px;
-font-family:proxima nova, proxima, helvetica, arial, sans-serif;
-margin-top: 0px;
-margin-bottom: 0px;
-}
-	
-td ul{margin-left:12px;
-padding-left:4px;
-padding-right:4px;
-padding-top:0px;
-padding-bottom:2px;
-margin-bottom:2px;
-margin-top:0px;
-letter-spacing:normal;
-	line-height:15px;
-}
-
-td ul li {
-margin-top:0px;
-}
-
-ol ol {
-	list-style-type:lower-alpha;
-}
-
-li p {
-	margin-top:8px;
-}
-
-li table tbody tr td p {
-	margin-top:2px;
-}
-
-/* HTML Styling: Ensures links under p tags have underlines */
-
-p a {
-text-decoration:underline;
-}
-
-
-
-/* General HTML: Styles images */
-
-img {
-margin-top:6px;
-}
-</style>
+	<title>iovation FraudForce Android SDK Library</title>
 </head>
 <body>
 
-<h1 id="iovationandroidsdklibrary">IOVATION ANDROID SDK LIBRARY</h1>
+<h1 id="iovationfraudforceandroidsdklibrary">IOVATION FRAUDFORCE ANDROID SDK LIBRARY</h1>
 
 <h2 id="overview">Overview</h2>
 
-<p>Follow these steps to implement the iovation Mobile SDK for Android.</p>
+<p>Follow these steps to implement the iovation FraudForce SDK for Android.</p>
 
 <h2 id="aboutmobileintegration">About Mobile Integration</h2>
 
-<p>iovation identifies devices through information collected by an iovation Mobile SDK run on an end-user’s mobile device. The Mobile SDK inspects the device to generate a blackbox that contains all device information available. This blackbox must then be transmitted to your servers to be used in a reputation check.</p>
+<p>iovation identifies devices through information collected by the iovation FraudForce SDK run on an end-user’s mobile device. The FraudForce SDK inspects the device to generate a blackbox that contains all device information available. This blackbox must then be transmitted to your servers to be used in a risk check.</p>
 
-<p>The iovation SDK integrates with native and hybrid apps. Hybrid apps mix native code with content that runs inside a web view.</p>
+<p>The iovation FraudForce SDK integrates with native and hybrid apps. Hybrid apps mix native code with content that runs inside a web view.</p>
 
 <h2 id="androidintegrationfilesandrequirements">Android Integration Files and Requirements</h2>
 
 <table>
 <colgroup>
-<col/>
-<col/>
+<col />
+<col />
 </colgroup>
 
 <thead>
 <tr>
-	<th></th>
-	<th></th>
+	<th>    </th>
+	<th>    </th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-	<td><strong>SDK Filename</strong></td>
-	<td>deviceprint-lib-release&#8211;2.3.3.aar</td>
+	<td> <strong>SDK Filename</strong>    </td>
+	<td> fraudforce&#8211;lib&#8211;release&#8211;3.0.0.aar </td>
 </tr>
 <tr>
-	<td><strong>Version</strong></td>
-	<td>2.3.3</td>
+	<td> <strong>Version</strong>     </td>
+	<td> 3.0.0    </td>
 </tr>
 <tr>
-	<td><strong>Package</strong></td>
-	<td>com.iovation.mobile.android.DevicePrint</td>
+	<td> <strong>Package</strong>     </td>
+	<td> com.iovation.mobile.android.FraudForce </td>
 </tr>
 <tr>
-	<td><strong>Android SDK Dependencies</strong></td>
-	<td>Android SDK 2.2 or higher (SDK level 8)</td>
+	<td> <strong>Android SDK Dependencies</strong> </td>
+	<td> Android SDK 4.1 or higher (SDK level 16) </td>
 </tr>
 <tr>
-	<td><strong>Library Dependencies</strong></td>
-	<td>None</td>
+	<td> <strong>Library Dependencies</strong>  </td>
+	<td> None </td>
 </tr>
 <tr>
-	<td><strong>Required Permissions</strong></td>
-	<td>None</td>
+	<td> <strong>Required Permissions</strong>  </td>
+	<td> None    </td>
 </tr>
 <tr>
-	<td><strong>Optional Permissions</strong></td>
-	<td>BLUETOOTH, ACCESS_WIFI_STATE, READ_PHONE_STATE, ACCESS_FINE_LOCATION, GET_ACCOUNTS, ACCESS_NETWORK_STATE</td>
+	<td> <strong>Optional Permissions</strong>  </td>
+	<td> BLUETOOTH, ACCESS_WIFI_STATE, READ_PHONE_STATE, ACCESS_FINE_LOCATION, GET_ACCOUNTS, ACCESS_NETWORK_STATE </td>
 </tr>
 </tbody>
 </table>
@@ -284,40 +69,40 @@ margin-top:6px;
 <p><strong>NOTE</strong> If the permissions listed are not required by the application, the values collected using those permissions will be ignored. The permissions are not required to obtain a usable blackbox, but they do help obtain some unique device information.</p>
 </blockquote>
 
-<p>Version 2.3.3 of the iovation Mobile SDK for Android supports Android 2.2 or higher.</p>
+<p>Version 3.0.0 of the iovation FraudForce SDK for Android supports Android 4.1 or higher.</p>
 
-<h2 id="installingthesdkforandroid">Installing the SDK for Android</h2>
+<h2 id="installingthefraudforcesdkforandroid">Installing the FraudForce SDK for Android</h2>
 
 <ol>
-<li><p>Log into the Administration Console and download iovation-android-sdk&#8211;2.3.3.zip from here: <a href="https://help.iovation.com/Downloads/Android_SDK_Downloads">iovation Mobile SDK for Android</a>. </p></li>
-<li><p>Unzip iovation-android-sdk&#8211;2.3.3.zip.</p></li>
+<li><p>Download iovation-android-sdk-3.0.0.zip from here: <a href="https://github.com/iovation/deviceprint-SDK-Android">iovation Mobile SDK for Android</a>. </p></li>
+<li><p>Unzip iovation-android-sdk-3.0.0.zip.</p></li>
 <li><p>Depending on your IDE, do one of the following:</p>
 
 <ul>
 <li><p>In <strong>Eclipse and Maven</strong>, deploy the AAR file to your local Maven repository, using maven-deploy. For more information, see <a href="http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html">Guide to installing 3rd party JARs</a>.</p></li>
-<li><p>If you are using <strong>Android Studio with Gradle</strong>, add the <em>deviceprint-lib-release&#8211;2.3.3.aar</em> file to your application module&#8217;s libs directory. Then, edit the <em>build.gradle</em> file in order to add the libs directory as a flat-file repository to the <code>buildscript</code> and <code>repository</code> sections. This makes the deviceprint-lib-release&#8211;2.3.3.aar file accessible to Gradle.</p>
+<li><p>If you are using <strong>Android Studio with Gradle</strong>, add the <em>fraudforce-lib-release-3.0.0.aar</em> file to your application module&#8217;s libs directory. Then, edit the <em>build.gradle</em> file in order to add the libs directory as a flat-file repository to the <code>buildscript</code> and <code>repository</code> sections. This makes the fraudforce-lib-release-3.0.0.aar file accessible to Gradle.</p>
 
-<pre><code>    buildscript {  
-        repositories {
-            flatDir {
-                dirs 'libs'
-            }
-        }
-    }
-        
+<pre><code>buildscript {
     repositories {
         flatDir {
             dirs 'libs'
         }
     }
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}
 </code></pre>
 
-<p>Also in the application module&#8217;s <code>build.gradle</code> file, make sure that deviceprint-lib-release&#8211;2.3.3 is a compile-time dependency:</p>
+<p>Also in the application module&#8217;s <code>build.gradle</code> file, make sure that fraudforce-lib-release-3.0.0 is a compile-time dependency:</p>
 
-<pre><code>    dependencies {
-        compile fileTree(dir: 'libs', include: ['*.jar'])
-        compile(name:'deviceprint-lib-release-2.3.3', ext:'aar')
-    }
+<pre><code>dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile(name:'fraudforce-lib-release-3.0.0', ext:'aar')
+}
 </code></pre>
 
 <p>Save the <code>build.gradle</code> file.</p></li>
@@ -329,40 +114,66 @@ margin-top:6px;
 <p>To integrate into native apps:</p>
 
 <ol>
-<li><p>In your Activity, import the <code>start</code> and <code>getBlackbox</code> functions:</p>
+<li><p>In your Application class, import the <code>FraudForceManager</code> and <code>FraudForceConfiguration</code> objects.</p>
 
-<pre><code>import static com.iovation.mobile.android.DevicePrint.start;  
-import static com.iovation.mobile.android.DevicePrint.getBlackbox;
+<pre><code>import com.iovation.mobile.android.FraudForceConfiguration;
+import com.iovation.mobile.android.FraudForceManager;
 </code></pre></li>
-<li><p>In your Activity&#8217;s <code>onCreate()</code> function, add the <code>start</code> function:</p>
+<li><p>Create a configuration object with your subscriber key, and enable or disable network calls to iovation servers. Entering the subscriber key is strongly recommended for all integrations, and it is required for network connections.</p>
 
-<pre><code>start();
+<blockquote>
+<p><strong>NOTE</strong> Please review the Network Calls section of this document before enabling network calls.</p>
+</blockquote>
+
+<pre><code>FraudForceConfiguration configuration = new FraudForceConfiguration.Builder()
+    .subscriberKey([YOUR-SUBSCRIBER-KEY-HERE])
+    .enableNetworkCalls(true) // Defaults to false if left out of configuration
+    .build();
 </code></pre></li>
-<li><p>Do one of the following to build a blackbox:</p>
+<li><p>Initialize the FraudForceManager class using the generated FraudForceConfiguration object, and the context.</p>
+
+<pre><code>FraudForceManager fraudForceManager = FraudForceManager.getInstance(context);
+fraudForceManager.initialize(configuration, context);
+</code></pre></li>
+<li><p>Call the <code>refresh()</code> method in the same Activity or Fragment where <code>getBlackbox()</code> will be called. The integrating application only needs to call this method on the Fragments where the <code>getBlackbox()</code> method will be called.</p>
+
+<blockquote>
+<p><strong>NOTE</strong>: This method calls updates the geolocation and network information, if enabled.</p>
+</blockquote>
+
+<pre><code>FraudForceManager.getInstance().refresh(context);
+</code></pre></li>
+<li><p>Do one of the following to generate the blackbox:</p>
 
 <ul>
-<li><p>To build a blackbox <strong>asynchronously</strong>, add an <code>AsyncTask</code> code block with a sub-class called <code>PrintThread</code> that will asynchronously collect the blackbox using the getBlackbox function.</p>
+<li>To build a blackbox <strong>asynchronously</strong>, create an AsyncTask object to generate the blackbox off the main thread.</li>
+</ul>
 
-<pre><code>private class PrintThread extends AsyncTask&lt;Void, Void, String&gt; {  
-    @Override  
-    protected String doInBackground(Void... voids) {  
-        return getBlackbox(getApplicationContext());  
-    }  
+<pre><code>private class FraudForceThread extends AsyncTask&lt;Void, Void, String&gt; {
+    @Override
+    protected String doInBackground(Void... voids) {
+        return FraudForceManager.getInstance().getBlackbox(context);
+    }
 
-    @Override  
-    protected void onPostExecute(String blackbox) {  
-        // Your code to store the blackbox
+    @Override
+    protected void onPostExecute(String blackbox) {
+        // Integrator's code to store the blackbox
     }
 }
-</code></pre></li>
-<li><p>To build the blackbox <strong>synchronously</strong>, call the <code>getBlackbox</code> function synchronously and submit the result in an asynchronous network thread:</p>
+</code></pre>
 
-<pre><code>String blackbox = getBlackbox(getApplicationContext());
-</code></pre></li>
-</ul></li>
-<li><p>Call the <code>PrintThread</code> block and store the blackbox.</p>
+<ul>
+<li>Then execute the FraudForceThread object to get the blackbox.</li>
+</ul>
 
-<pre><code>new PrintThread().execute();
+<pre><code>new FraudForceThread().execute();
+</code></pre>
+
+<ul>
+<li>To build a blackbox <strong>synchronously</strong>, call the <code>getBlackbox(Context context)</code> function on a FraudForceManager object.</li>
+</ul>
+
+<pre><code>String blackbox = FraudForceManager.getInstance().getBlackbox(context);
 </code></pre></li>
 </ol>
 
@@ -378,70 +189,88 @@ import static com.iovation.mobile.android.DevicePrint.getBlackbox;
 <li><p>This calls the <code>inject_bb</code> function, which creates a hidden iframe that calls the <code>iov://</code> URL. The iframe then deletes itself.</p></li>
 <li><p>The <code>shouldOverrideUrlLoading</code> function inside of the WebView object in Java is called. This function detects the <code>iov://blackbox/fill#dom_id</code> URL.The <code>dom_id</code> is the ID of the object on the HTML page where the blackbox will be written, such as a hidden form field.</p></li>
 <li><p>The <code>shouldOverrideUrlLoading</code> function runs JavaScript that automatically injects the blackbox into that object.</p></li>
-<li><p>The blackbox is submitted to iovation.</p></li>
 </ol>
 
 <h3 id="implementinghybridappsupport">Implementing Hybrid App Support</h3>
 
 <ol>
-<li><p>In your WebView Activity, import the <code>start</code> and <code>getBlackbox</code> functions:</p>
+<li><p>In your Application class, import the <code>FraudForceManager</code> and <code>FraudForceConfiguration</code> objects.</p>
 
-<pre><code>import static com.iovation.mobile.android.DevicePrint.start;  
-import static com.iovation.mobile.android.DevicePrint.getBlackbox;
+<pre><code>import com.iovation.mobile.android.FraudForceConfiguration;
+import com.iovation.mobile.android.FraudForceManager;
 </code></pre></li>
-<li><p>In your WebView Activity&#8217;s <code>onCreate()</code> function, add the <code>start</code> function in order to start the blackbox collection background process:</p>
+<li><p>Create a configuration object with your subscriber key, and enable or disable network calls to iovation servers. Entering the subscriber key is strongly recommended for all integrations, and it is required for network connections.</p>
 
-<pre><code>start();
+<blockquote>
+<p><strong>NOTE</strong> Please review the Network Calls section of this document before enabling network calls.</p>
+</blockquote>
+
+<pre><code>FraudForceConfiguration configuration = new FraudForceConfiguration.Builder()
+    .subscriberKey([YOUR-SUBSCRIBER-KEY-HERE])
+    .enableNetworkCalls(true) // Defaults to false if left out of configuration
+    .build();
 </code></pre></li>
-<li><p>In your WebView Activity&#8217;s <code>onCreate()</code> function, set your WebView&#8217;s <code>shouldOverrideUrlLoading()</code> function.</p>
+<li><p>Initialize the FraudForceManager class using the generated FraudForceConfiguration object, and the context.</p>
 
-<pre><code>wv.setWebViewClient(new WebViewClient() {  
-    @Override  
-    public boolean shouldOverrideUrlLoading(WebView view, String url) {  
-        String[] ref = url.split(&quot;#&quot;);  
-        if (url.startsWith(&quot;iov://&quot;) &amp;&amp; ref.length &gt; 1 &amp;&amp; ref[1] != null) {  
-        String injectedJavascript=&quot;javascript:(function() { &quot; +  
-            &quot;document.getElementById('&quot; + ref[1] + &quot;').value = '&quot; + getBlackbox(wv.getContext()) +  
-            &quot;';})()&quot;;  
-        wv.loadUrl(injectedJavascript);  
-        return true;  
-    }  
-    return false;  
-    }  
+<pre><code>FraudForceManager fraudForceManager = FraudForceManager.getInstance();
+fraudForceManager.initialize(configuration, context);
+</code></pre></li>
+<li><p>In your WebView Activity&#8217;s <code>onCreate()</code> function, set your WebView&#8217;s <code>shouldOverrideUrlLoading()</code> function, as well as the <code>onPageStarted()</code> function.</p>
+
+<pre><code>wv.setWebViewClient(new WebViewClient() {
+    @Override
+    public void onPageStarted(WebView view, String url, Bitmap favicon) {
+        FraudForceManager.getInstance().refresh(getContext());
+        super.onPageStarted(view, url, favicon);
+    }
+
+    @Override
+    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        String[] ref = url.split(&quot;#&quot;);
+        if (url.startsWith(&quot;iov://&quot;) &amp;&amp; ref.length &gt; 1 &amp;&amp; ref[1] != null) {
+        String injectedJavascript=&quot;javascript:(function() { &quot; +
+            &quot;document.getElementById('&quot; + ref[1] + &quot;').value = '&quot;
+            + FraudForceManager.getInstance().getBlackbox(wv.getContext())
+            + &quot;';})()&quot;;
+            wv.loadUrl(injectedJavascript);
+            return true;
+        }
+        return false;
+    }
 });
 </code></pre></li>
 <li><p>On your HTML page, include a javascript function called <code>inject_bb</code> that injects an iframe with a call to the <code>iov://</code> URL.</p>
 
 <pre><code>function inject_bb(id) {  
-    var iframe = document.createElement('IFRAME');  
-    iframe.setAttribute('src', 'iov://blackbox/fill#' + id);  
-    iframe.name=&quot;ioOut&quot;;  
-    document.documentElement.appendChild(iframe);  
-    iframe.parentNode.removeChild(iframe);  
-    iframe = null;  
+	var iframe = document.createElement('IFRAME');  
+	iframe.setAttribute('src', 'iov://blackbox/fill#' + id);  
+	iframe.name=&quot;ioOut&quot;;  
+	document.documentElement.appendChild(iframe);  
+	iframe.parentNode.removeChild(iframe);  
+	iframe = null;  
 }
 </code></pre></li>
-<li><p>Call the <code>inject_bb</code> function with the ID of the DOM object to inject the blackbox into for collection. The <code>shouldOverrideUrlLoading()</code> function will inject the blackbox. For example, set <code>ID</code> to a hidden form field where the blackbox will be stored. When the form containing the field is submitted, the blackbox is returned to your server back-end, and can then be sent to iovation to evaluate along with the transaction.</p></li>
+<li><p>You must inject the blackbox into a DOM object for collection. To do this, call the <code>inject_bb</code> function with the ID of the DOM object, which will automatically call the <code>shouldOverrideUrlLoading()</code> function. For example, set <code>ID</code> to a hidden form field where the blackbox will be stored. When the form containing the field is submitted, the blackbox is returned to your server back-end, and can then be sent to iovation to evaluate along with the transaction.</p></li>
 </ol>
 
-<h2 id="upgradingfromtheiobeginfunction">Upgrading from the ioBegin Function</h2>
+<h2 id="networkcalls">Network Calls</h2>
 
-<p>Prior to version 2.0.0, the iovation Mobile SDK for Android provided a blackbox via a call to ioBegin. This release deprecates ioBegin. This function is still available for backward compatibility. However, to take advantage of new features now and in the future, we strongly advise existing users to upgrade.</p>
+<p>This release introduces the ability for the android SDK to make a network call to iovation&#8217;s service. This enables additional functionality in the FraudForce SDK, including:</p>
 
-<p>To upgrade:</p>
+<ul>
+<li> Collect additional network information</li>
+<li> Configuration updates to root detection</li>
+<li> Collect information on potential high-risk applications on the device</li>
+</ul>
 
-<ol>
-<li><p>Install the latest version of the SDK.</p></li>
-<li><p>In your Activity&#8217;s <code>onCreate()</code> function, add the <code>start</code> function to start background processing.</p></li>
-<li><p>Add an <code>AsyncTask</code> code block with a sub-class called <code>PrintThread</code> that will asynchronously collect the blackbox using the <code>getBlackbox</code> function.</p></li>
-</ol>
+<p>By default this functionality is disabled and will need to be enabled in the configuration object. Usage of this feature requires a subscriber key be provided. Please contact your iovation client representative to acquire a subscriber key.</p>
 
 <h2 id="compilingthesampleappinandroidstudio">Compiling The Sample App in Android Studio</h2>
 
 <ol>
-<li><p>Log into the Administration Console and download deviceprint-lib-release&#8211;2.3.3.zip from here: <a href="https://help.iovation.com/Downloads/Android_SDK_Downloads">iovation Mobile SDK for Android</a>.</p></li>
+<li><p>Log into the Administration Console and download fraudforce-lib-release-3.0.0.zip from here: <a href="https://github.com/iovation/deviceprint-SDK-Android">iovation Mobile SDK for Android</a>.</p></li>
 <li><p>In Android Studio, select File | Open or click <strong>Open Existing Android Studio Project</strong> from the quick-start screen.</p></li>
-<li><p>From the directory where you unzipped deviceprint-lib-release&#8211;2.3.3.zip, open the <strong>android-studio-sample-app</strong> directory.</p></li>
+<li><p>From the directory where you unzipped fraudforce-lib-release-3.0.0.zip, open the <strong>android-studio-sample-app</strong> directory.</p></li>
 <li><p>In the project navigation view, open <code>src/main/java/com/iovation/mobile/android/sample/MainActivity.java</code></p></li>
 <li><p>Right-click the file editing view and select <em>Run Main Activity</em>.</p>
 
@@ -455,6 +284,15 @@ import static com.iovation.mobile.android.DevicePrint.getBlackbox;
 </ol>
 
 <h2 id="changelog">Changelog</h2>
+
+<h3 id="3.0.0">3.0.0</h3>
+
+<ul>
+<li><p>New API objects, <code>FraudForceConfiguration</code> and <code>FraudForceManager</code>. Prior API objects have been removed.</p></li>
+<li><p>Compatibility with Android 8.0.</p></li>
+<li><p>Introduced network calls back to iovation service for additional functionality.</p></li>
+<li><p>Dropped support for Android API level 8 through API level 15.</p></li>
+</ul>
 
 <h3 id="2.3.3">2.3.3</h3>
 
@@ -514,3 +352,4 @@ import static com.iovation.mobile.android.DevicePrint.getBlackbox;
 
 </body>
 </html>
+
