@@ -9,7 +9,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
-        versionName "3.0.0"
+        versionName "3.0.1"
     }
     buildTypes {
         release {
@@ -44,5 +44,5 @@ repositories {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile(name:'fraudforce-lib-release-3.0.0', ext:'aar')
+    compile(name:'fraudforce-lib-release-3.0.1', ext:'aar')
 }
