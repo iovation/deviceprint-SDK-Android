@@ -17,8 +17,8 @@ The iovation FraudForce SDK integrates with native and hybrid apps. Hybrid apps 
 
 |                                 |                                                                                                                   |
 |---------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| **SDK Filename**                | fraudforce-lib-release-3.1.0.aar                                                                                  |
-| **Version**                     | 3.1.0                                                                                                             |
+| **SDK Filename**                | fraudforce-lib-release-4.0.0.aar                                                                                  |
+| **Version**                     | 4.0.0                                                                                                             |
 | **Package**                     | com.iovation.mobile.android.FraudForce                                                                            |
 | **Android SDK Dependencies**    | Android SDK 4.1 or higher (SDK level 16)                                                                          |
 | **Library Dependencies**        | None                                                                                                              |
@@ -28,19 +28,19 @@ The iovation FraudForce SDK integrates with native and hybrid apps. Hybrid apps 
 
 > __NOTE__ If the permissions listed are not required by the application, the values collected using those permissions will be ignored. The permissions are not required to obtain a usable blackbox, but they do help obtain some unique device information.
 
-Version 3.1.0 of the iovation FraudForce SDK for Android supports Android 4.1 or higher.
+Version 4.0.0 of the iovation FraudForce SDK for Android supports Android 4.1 or higher.
 
 ## Installing the FraudForce SDK for Android
 
-1.  Download iovation-android-sdk-3.1.0.zip from here: [iovation Mobile SDK for Android](https://github.com/iovation/deviceprint-SDK-Android). 
+1.  Download iovation-android-sdk-4.0.0.zip from here: [iovation Mobile SDK for Android](https://github.com/iovation/deviceprint-SDK-Android). 
 
-2.  Unzip iovation-android-sdk-3.1.0.zip.
+2.  Unzip iovation-android-sdk-4.0.0.zip.
 
 3.  Depending on your IDE, do one of the following:
 
 	- In __Eclipse and Maven__, deploy the AAR file to your local Maven repository, using maven-deploy. For more information, see [Guide to installing 3rd party JARs](http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html).
 
-	- If you are using __Android Studio with Gradle__, add the *fraudforce-lib-release-3.1.0.aar* file to your application module's libs directory. Then, edit the *build.gradle* file in order to add the libs directory as a flat-file repository to the `buildscript` and `repository` sections. This makes the fraudforce-lib-release-3.0.0.aar file accessible to Gradle.
+	- If you are using __Android Studio with Gradle__, add the *fraudforce-lib-release-4.0.0.aar* file to your application module's libs directory. Then, edit the *build.gradle* file in order to add the libs directory as a flat-file repository to the `buildscript` and `repository` sections. This makes the fraudforce-lib-release-4.0.0.aar file accessible to Gradle.
 
 		```
         buildscript {
@@ -57,12 +57,12 @@ Version 3.1.0 of the iovation FraudForce SDK for Android supports Android 4.1 or
             }
         }
 		```
-		Also in the application module's `build.gradle` file, make sure that fraudforce-lib-release-3.1.0 is a compile-time dependency:
+		Also in the application module's `build.gradle` file, make sure that fraudforce-lib-release-4.0.0 is a compile-time dependency:
 	
 		```
         dependencies {
             compile fileTree(dir: 'libs', include: ['*.jar'])
-            compile(name:'fraudforce-lib-release-3.1.0', ext:'aar')
+            compile(name:'fraudforce-lib-release-4.0.0', ext:'aar')
         }
 		```
 		
@@ -216,7 +216,7 @@ Integrate into hybrid apps by implementing the following workflow for collecting
 
 ## Network Calls
 
-This release introduces the ability for the android SDK to make a network call to iovation's service. This enables additional functionality in the FraudForce SDK, including:
+The SDK includes the ability to make a network call to iovation's service. This enables additional functionality in the FraudForce SDK, including:
 
  - Collect additional network information
  - Configuration updates to root detection
@@ -226,25 +226,31 @@ This release introduces the ability for the android SDK to make a network call t
 
 ## Compiling The Sample App in Android Studio
 
-1. Log into the Administration Console and download fraudforce-lib-release-3.1.0.zip from here: [iovation Mobile SDK for Android](https://github.com/iovation/deviceprint-SDK-Android).
+1 In Android Studio, select File | Open or click **Open Existing Android Studio Project** from the quick-start screen.
 
-2. In Android Studio, select File | Open or click **Open Existing Android Studio Project** from the quick-start screen.
+2. From the directory where you unzipped fraudforce-lib-release-4.0.0.zip, open the **android-studio-sample-app** directory.
 
-3. From the directory where you unzipped fraudforce-lib-release-3.1.0.zip, open the **android-studio-sample-app** directory.
+3. In the project navigation view, open `src/main/java/com/iovation/mobile/android/sample/MainActivity.java`
 
-4. In the project navigation view, open `src/main/java/com/iovation/mobile/android/sample/MainActivity.java`
-
-5. Right-click the file editing view and select _Run Main Activity_.
+4. Right-click the file editing view and select _Run Main Activity_.
 
     - **IMPORTANT!** If the option to run the module does not appear, select FILE -> PROJECT STRUCTURE and open the Modules panel. From there, set the Module SDK drop-down to your target Android SDK version.
 
 	Alternatively, you can right-click on the build.gradle file, and select **Run 'build'**.
 
-6. Select either an attached physical device, or an Android virtual device to run the app on. The app should now compile and launch.
+5. Select either an attached physical device, or an Android virtual device to run the app on. The app should now compile and launch.
 
-7. When the app compiles successfully, you will see a view with a button that allows you to display a blackbox.
+6. When the app compiles successfully, you will see a view with a button that allows you to display a blackbox.
 
 ## Changelog
+
+### 4.0.0
+
+- Enhanced support for Android 9.0 Pie.
+
+- Further improvements to location data collection process.
+
+- Resolved Google Play alerts regarding encryption methods.
 
 ### 3.1.0
 
