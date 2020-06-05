@@ -36,11 +36,11 @@
 <tbody>
 <tr>
 	<td> <strong>SDK Filename</strong>    </td>
-	<td> fraudforce-lib-release-4.1.1.aar                     </td>
+	<td> fraudforce-lib-release-4.2.0.aar                     </td>
 </tr>
 <tr>
 	<td> <strong>Version</strong>      </td>
-	<td> 4.1.1                            </td>
+	<td> 4.2.0                            </td>
 </tr>
 <tr>
 	<td> <strong>Package</strong>      </td>
@@ -74,18 +74,18 @@
 <p><strong>NOTE</strong> Android 10 introduced the ACCESS_BACKGROUND_LOCATION permission, protected at the dangerous level as is the case for ACCESS_FINE_LOCATION. Refer to the official Android documentation for when and how to incorporate this permission.</p>
 </blockquote>
 
-<p>Version 4.1.1 of the iovation FraudForce SDK for Android supports Android 4.1 or higher.</p>
+<p>Version 4.2.0 of the iovation FraudForce SDK for Android supports Android 4.1 or higher.</p>
 
 <h2 id="installingthefraudforcesdkforandroid">Installing the FraudForce SDK for Android</h2>
 
 <ol>
-<li><p>Download iovation-android-sdk-4.1.1.zip from here: <a href="https://github.com/iovation/deviceprint-SDK-Android">iovation Mobile SDK for Android</a>. </p></li>
-<li><p>Unzip iovation-android-sdk-4.1.1.zip.</p></li>
+<li><p>Download iovation-android-sdk-4.2.0.zip from here: <a href="https://github.com/iovation/deviceprint-SDK-Android">iovation Mobile SDK for Android</a>. </p></li>
+<li><p>Unzip iovation-android-sdk-4.2.0.zip.</p></li>
 <li><p>Depending on your IDE, do one of the following:</p>
 
 <ul>
 <li><p>In <strong>Eclipse and Maven</strong>, deploy the AAR file to your local Maven repository, using maven-deploy. For more information, see <a href="http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html">Guide to installing 3rd party JARs</a>.</p></li>
-<li><p>If you are using <strong>Android Studio with Gradle</strong>, add the <em>fraudforce-lib-release-4.1.1.aar</em> file to your application module&#8217;s libs directory. Then, edit the <em>build.gradle</em> file in order to add the libs directory as a flat-file repository to the <code>buildscript</code> and <code>repository</code> sections. This makes the fraudforce-lib-release-4.1.1.aar file accessible to Gradle.</p>
+<li><p>If you are using <strong>Android Studio with Gradle</strong>, add the <em>fraudforce-lib-release-4.2.0.aar</em> file to your application module&#8217;s libs directory. Then, edit the <em>build.gradle</em> file in order to add the libs directory as a flat-file repository to the <code>buildscript</code> and <code>repository</code> sections. This makes the fraudforce-lib-release-4.2.0.aar file accessible to Gradle.</p>
 
 <pre><code>buildscript {
     repositories {
@@ -102,11 +102,11 @@ repositories {
 }
 </code></pre>
 
-<p>Also in the application module&#8217;s <code>build.gradle</code> file, make sure that fraudforce-lib-release-4.1.1 is a compile-time dependency:</p>
+<p>Also in the application module&#8217;s <code>build.gradle</code> file, make sure that fraudforce-lib-release-4.2.0 is a compile-time dependency:</p>
 
 <pre><code>dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile(name:'fraudforce-lib-release-4.1.1', ext:'aar')
+    compile(name:'fraudforce-lib-release-4.2.0', ext:'aar')
 }
 </code></pre>
 
@@ -115,6 +115,16 @@ repositories {
 </ol>
 
 <h2 id="integratingintonativeapps">Integrating into Native Apps</h2>
+
+<blockquote>
+    <p><strong>NOTE</strong> If you are using an older version of the Android Gradle Plugin and encountering UnsatisfiedLinkErrors in the course of your testing, you may need to add the following to your ProGuard configuration:</p>
+</blockquote>
+<pre><code>
+    -keep public class com.iovation.mobile.android.details.RP {
+        public native java.lang.String a();
+        public native java.lang.String b();
+    }
+</code></pre>
 
 <p>To integrate into native apps:</p>
 
@@ -278,7 +288,7 @@ fraudForceManager.initialize(configuration, context);
 
 <ol>
 <li><p>In Android Studio, select File | Open or click <strong>Open Existing Android Studio Project</strong> from the quick-start screen.</p></li>
-<li><p>From the directory where you unzipped fraudforce-lib-release-4.1.1.zip, open the <strong>android-studio-sample-app</strong> directory.</p></li>
+<li><p>From the directory where you unzipped fraudforce-lib-release-4.2.0.zip, open the <strong>android-studio-sample-app</strong> directory.</p></li>
 <li><p>In the project navigation view, open <code>src/main/java/com/iovation/mobile/android/sample/MainActivity.java</code></p></li>
 <li><p>Right-click the file editing view and select <em>Run Main Activity</em>.</p>
 
@@ -292,6 +302,14 @@ fraudForceManager.initialize(configuration, context);
 </ol>
 
 <h2 id="changelog">Changelog</h2>
+
+<h3 id="4.2.0">4.2.0</h3>
+
+<ul>
+    <li><p>Several obfuscation-related updates/fixes, including preservation of base package.</p></li>
+    <li><p>Update target SDK to 29</p></li>
+</ul>
+
 
 <h3 id="4.1.1">4.1.1</h3>
 

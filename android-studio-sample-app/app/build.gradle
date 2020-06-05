@@ -6,9 +6,9 @@ android {
     defaultConfig {
         applicationId "com.iovation.mobile.android.sample.androidstudiosampleapp"
         minSdkVersion 16
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
-        versionName "4.1.1"
+        versionName "4.2.0"
     }
     buildTypes {
         release {
@@ -43,5 +43,5 @@ repositories {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    api(name:'fraudforce-lib-4.1.1-release', ext:'aar')
+    api(name:'fraudforce-lib-4.2.0-release', ext:'aar')
 }
