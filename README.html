@@ -36,7 +36,7 @@
 <tbody>
 <tr>
 	<td> <strong>SDK Filename</strong>    </td>
-	<td> fraudforce-lib-release-4.2.0.aar                     </td>
+	<td> fraudforce-lib-4.2.0-release.aar                     </td>
 </tr>
 <tr>
 	<td> <strong>Version</strong>      </td>
@@ -85,7 +85,7 @@
 
 <ul>
 <li><p>In <strong>Eclipse and Maven</strong>, deploy the AAR file to your local Maven repository, using maven-deploy. For more information, see <a href="http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html">Guide to installing 3rd party JARs</a>.</p></li>
-<li><p>If you are using <strong>Android Studio with Gradle</strong>, add the <em>fraudforce-lib-release-4.2.0.aar</em> file to your application module&#8217;s libs directory. Then, edit the <em>build.gradle</em> file in order to add the libs directory as a flat-file repository to the <code>buildscript</code> and <code>repository</code> sections. This makes the fraudforce-lib-release-4.2.0.aar file accessible to Gradle.</p>
+<li><p>If you are using <strong>Android Studio with Gradle</strong>, add the <em>fraudforce-lib-4.2.0-release.aar</em> file to your application module&#8217;s libs directory. Then, edit the <em>build.gradle</em> file in order to add the libs directory as a flat-file repository to the <code>buildscript</code> and <code>repository</code> sections. This makes the fraudforce-lib-4.2.0-release.aar file accessible to Gradle.</p>
 
 <pre><code>buildscript {
     repositories {
@@ -102,11 +102,11 @@ repositories {
 }
 </code></pre>
 
-<p>Also in the application module&#8217;s <code>build.gradle</code> file, make sure that fraudforce-lib-release-4.2.0 is a compile-time dependency:</p>
+<p>Also in the application module&#8217;s <code>build.gradle</code> file, make sure that fraudforce-lib-4.2.0-release is a compile-time dependency:</p>
 
 <pre><code>dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile(name:'fraudforce-lib-release-4.2.0', ext:'aar')
+    compile(name:'fraudforce-lib-4.2.0-release', ext:'aar')
 }
 </code></pre>
 

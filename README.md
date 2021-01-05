@@ -17,7 +17,7 @@ The iovation FraudForce SDK integrates with native and hybrid apps. Hybrid apps 
 
 |                                 |                                                                                                                   |
 |---------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| **SDK Filename**                | fraudforce-lib-release-4.2.0.aar                                                                                  |
+| **SDK Filename**                | fraudforce-lib-4.2.0-release.aar                                                                                  |
 | **Version**                     | 4.2.0                                                                                                             |
 | **Package**                     | com.iovation.mobile.android.FraudForce                                                                            |
 | **Android SDK Dependencies**    | Android SDK 4.1 or higher (SDK level 16)                                                                          |
@@ -43,7 +43,7 @@ Version 4.2.0 of the iovation FraudForce SDK for Android supports Android 4.1 or
 
 	- In __Eclipse and Maven__, deploy the AAR file to your local Maven repository, using maven-deploy. For more information, see [Guide to installing 3rd party JARs](http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html).
 
-	- If you are using __Android Studio with Gradle__, add the *fraudforce-lib-release-4.2.0.aar* file to your application module's libs directory. Then, edit the *build.gradle* file in order to add the libs directory as a flat-file repository to the `buildscript` and `repository` sections. This makes the fraudforce-lib-release-4.2.0.aar file accessible to Gradle.
+	- If you are using __Android Studio with Gradle__, add the *fraudforce-lib-4.2.0-release.aar* file to your application module's libs directory. Then, edit the *build.gradle* file in order to add the libs directory as a flat-file repository to the `buildscript` and `repository` sections. This makes the fraudforce-lib-4.2.0-release.aar file accessible to Gradle.
 
 		```
         buildscript {
@@ -60,12 +60,12 @@ Version 4.2.0 of the iovation FraudForce SDK for Android supports Android 4.1 or
             }
         }
 		```
-		Also in the application module's `build.gradle` file, make sure that fraudforce-lib-release-4.2.0 is a compile-time dependency:
+		Also in the application module's `build.gradle` file, make sure that fraudforce-lib-4.2.0-release is a compile-time dependency:
 	
 		```
         dependencies {
             compile fileTree(dir: 'libs', include: ['*.jar'])
-            compile(name:'fraudforce-lib-release-4.2.0', ext:'aar')
+            compile(name:'fraudforce-lib-4.2.0-release', ext:'aar')
         }
 		```
 		
