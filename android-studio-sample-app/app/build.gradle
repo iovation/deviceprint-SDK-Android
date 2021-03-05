@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
 
     defaultConfig {
         applicationId "com.iovation.mobile.android.sample.androidstudiosampleapp"
-        minSdkVersion 16
-        targetSdkVersion 29
+        minSdkVersion 21
+        targetSdkVersion 30
         versionCode 1
-        versionName "4.2.0"
+        versionName "4.3.0"
     }
     buildTypes {
         release {
@@ -43,5 +43,5 @@ repositories {
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    api(name:'fraudforce-lib-4.2.0-release', ext:'aar')
+    api(name:'fraudforce-lib-release-4.3.0', ext:'aar')
 }

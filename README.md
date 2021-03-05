@@ -17,33 +17,35 @@ The iovation FraudForce SDK integrates with native and hybrid apps. Hybrid apps 
 
 |                                 |                                                                                                                   |
 |---------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| **SDK Filename**                | fraudforce-lib-release-4.2.0.aar                                                                                  |
-| **Version**                     | 4.2.0                                                                                                             |
+| **SDK Filename**                | fraudforce-lib-release-4.3.0.aar                                                                                  |
+| **Version**                     | 4.3.0                                                                                                             |
 | **Package**                     | com.iovation.mobile.android.FraudForce                                                                            |
-| **Android SDK Dependencies**    | Android SDK 4.1 or higher (SDK level 16)                                                                          |
+| **Android SDK Dependencies**    | Android SDK 5.0 or higher (SDK level 21)                                                                          |
 | **Library Dependencies**        | None                                                                                                              |
 | **Required Permissions**        | None                                                                                                              |
 | **Optional Permissions**        | BLUETOOTH, CAMERA, ACCESS\_WIFI\_STATE, READ\_PHONE\_STATE, ACCESS\_FINE\_LOCATION, ACCESS\_BACKGROUND\_LOCATION, |
 |                                 | GET\_ACCOUNTS, ACCESS\_NETWORK\_STATE                                                                             |
 | **Supported NDK Architectures** | x86, x86_64, arm64-v8a, armeabi-v7a                                                                               |
 
+> __NOTE__ Regarding Android 11 background location changes: The FraudForce SDK neither requires nor requests location when the application is in a background state.
+
 > __NOTE__ If the permissions listed are not required by the application, the values collected using those permissions will be ignored. The permissions are not required to obtain a usable blackbox, but they do help obtain some unique device information.
 
 > __NOTE__ Android 10 introduced the ACCESS_BACKGROUND_LOCATION permission, protected at the dangerous level as is the case for ACCESS_FINE_LOCATION. Refer to the official Android documentation for when to incorporate this permission.
 
-Version 4.2.0 of the iovation FraudForce SDK for Android supports Android 4.1 or higher.
+Version 4.3.0 of the iovation FraudForce SDK for Android supports Android 5.0 or higher.
 
 ## Installing the FraudForce SDK for Android
 
-1.  Download iovation-android-sdk-4.2.0.zip from here: [iovation Mobile SDK for Android](https://github.com/iovation/deviceprint-SDK-Android). 
+1.  Download iovation-android-sdk-4.3.0.zip from here: [iovation Mobile SDK for Android](https://github.com/iovation/deviceprint-SDK-Android). 
 
-2.  Unzip iovation-android-sdk-4.2.0.zip.
+2.  Unzip iovation-android-sdk-4.3.0.zip.
 
 3.  Depending on your IDE, do one of the following:
 
 	- In __Eclipse and Maven__, deploy the AAR file to your local Maven repository, using maven-deploy. For more information, see [Guide to installing 3rd party JARs](http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html).
 
-	- If you are using __Android Studio with Gradle__, add the *fraudforce-lib-release-4.2.0.aar* file to your application module's libs directory. Then, edit the *build.gradle* file in order to add the libs directory as a flat-file repository to the `buildscript` and `repository` sections. This makes the fraudforce-lib-release-4.2.0.aar file accessible to Gradle.
+	- If you are using __Android Studio with Gradle__, add the *fraudforce-lib-release-4.3.0.aar* file to your application module's libs directory. Then, edit the *build.gradle* file in order to add the libs directory as a flat-file repository to the `buildscript` and `repository` sections. This makes the fraudforce-lib-release-4.3.0.aar file accessible to Gradle.
 
 		```
         buildscript {
@@ -60,12 +62,12 @@ Version 4.2.0 of the iovation FraudForce SDK for Android supports Android 4.1 or
             }
         }
 		```
-		Also in the application module's `build.gradle` file, make sure that fraudforce-lib-release-4.2.0 is a compile-time dependency:
+		Also in the application module's `build.gradle` file, make sure that fraudforce-lib-release-4.3.0 is a compile-time dependency:
 	
 		```
         dependencies {
             compile fileTree(dir: 'libs', include: ['*.jar'])
-            compile(name:'fraudforce-lib-release-4.2.0', ext:'aar')
+            compile(name:'fraudforce-lib-release-4.3.0', ext:'aar')
         }
 		```
 		
@@ -103,7 +105,7 @@ To integrate into native apps:
         .build();
     ```
 
-3. Initialize the FraudForceManager class using the generated FraudForceConfiguration object, and the context.
+3. Initialize the FraudForceManager class using the generated FraudForceConfiguration object, and the application context.
 
     ```
     FraudForceManager fraudForceManager = FraudForceManager.getInstance();
@@ -113,6 +115,8 @@ To integrate into native apps:
 4. Call the `refresh()` method in the same Activity or Fragment where `getBlackbox()` will be called. The integrating application only needs to call this method on the Fragments where the `getBlackbox()` method will be called.
 
     > __NOTE__: This method calls updates the geolocation and network information, if enabled.
+
+    > __NOTE__: As with initialization, pass the application context when refreshing.
 
     ```
     FraudForceManager.getInstance().refresh(context);
@@ -179,7 +183,7 @@ Integrate into hybrid apps by implementing the following workflow for collecting
         .build();
     ```
 
-3. Initialize the FraudForceManager class using the generated FraudForceConfiguration object, and the context.
+3. Initialize the FraudForceManager class using the generated FraudForceConfiguration object, and the application context.
 
     ```
     FraudForceManager fraudForceManager = FraudForceManager.getInstance();
@@ -239,7 +243,7 @@ The SDK includes the ability to make a network call to iovation's service. This 
 
 1 In Android Studio, select File | Open or click **Open Existing Android Studio Project** from the quick-start screen.
 
-2. From the directory where you unzipped fraudforce-lib-release-4.2.0.zip, open the **android-studio-sample-app** directory.
+2. From the directory where you unzipped fraudforce-lib-release-4.3.0.zip, open the **android-studio-sample-app** directory.
 
 3. In the project navigation view, open `src/main/java/com/iovation/mobile/android/sample/MainActivity.java`
 
@@ -254,6 +258,12 @@ The SDK includes the ability to make a network call to iovation's service. This 
 6. When the app compiles successfully, you will see a view with a button that allows you to display a blackbox.
 
 ## Changelog
+
+### 4.3.0
+
+- Minimum supported Android version updated, from 16 to 21.
+- Update target and compilation SDK versions to 30.
+- Bug fixes for NPEs sometimes encountered during asynchronous calls to initialize and/or refresh.
 
 ### 4.2.0
 
