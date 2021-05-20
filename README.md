@@ -1,16 +1,19 @@
-Title: iovation FraudForce Android SDK Library
+Title: TransUnion TruValidate Device Risk Android SDK Library
 
-# IOVATION FRAUDFORCE ANDROID SDK LIBRARY
+# TRUVALIDATE DEVICE RISK ANDROID SDK LIBRARY
+
+## What is TruValidate Device Risk?
+**FraudForce is now Device Risk. Our device-based products, such as Device Risk and Device-Based Authentication (formerly ClearKey), are critical components of our fraud and identity solutions; the new names make it easy to quickly understand our extensive capabilities. We have united these solutions under the TransUnion TruValidate brand. We have taken care not to update anything that might affect your implementations; as a result you'll still see legacy names in some places.**
 
 ## Overview
 
-Follow these steps to implement the iovation FraudForce SDK for Android.
+Follow these steps to implement the TruValidate Device Risk SDK for Android.
 
 ## About Mobile Integration
 
-iovation identifies devices through information collected by the iovation FraudForce SDK run on an end-user’s mobile device. The FraudForce SDK inspects the device to generate a blackbox that contains all device information available. This blackbox must then be transmitted to your servers to be used in a risk check.
+TransUnion identifies devices through information collected by the Device Risk SDK run on an end-user’s mobile device. The Device Risk SDK inspects the device to generate a blackbox that contains all device information available. This blackbox must then be transmitted to your servers to be used in a risk check.
 
-The iovation FraudForce SDK integrates with native and hybrid apps. Hybrid apps mix native code with content that runs inside a web view.
+The Device Risk SDK integrates with native and hybrid apps. Hybrid apps mix native code with content that runs inside a web view.
 
 ## Android Integration Files and Requirements
 
@@ -27,15 +30,15 @@ The iovation FraudForce SDK integrates with native and hybrid apps. Hybrid apps 
 |                                 | GET\_ACCOUNTS, ACCESS\_NETWORK\_STATE                                                                             |
 | **Supported NDK Architectures** | x86, x86_64, arm64-v8a, armeabi-v7a                                                                               |
 
-> __NOTE__ Regarding Android 11 background location changes: The FraudForce SDK neither requires nor requests location when the application is in a background state.
+> __NOTE__ Regarding Android 11 background location changes: The Device Risk SDK neither requires nor requests location when the application is in a background state.
 
 > __NOTE__ If the permissions listed are not required by the application, the values collected using those permissions will be ignored. The permissions are not required to obtain a usable blackbox, but they do help obtain some unique device information.
 
 > __NOTE__ Android 10 introduced the ACCESS_BACKGROUND_LOCATION permission, protected at the dangerous level as is the case for ACCESS_FINE_LOCATION. Refer to the official Android documentation for when to incorporate this permission.
 
-Version 4.3.0 of the iovation FraudForce SDK for Android supports Android 5.0 or higher.
+Version 4.3.0 of the TruValidate Device Risk SDK for Android supports Android 5.0 or higher.
 
-## Installing the FraudForce SDK for Android
+## Installing the Device Risk SDK for Android
 
 1.  Download iovation-android-sdk-4.3.0.zip from here: [iovation Mobile SDK for Android](https://github.com/iovation/deviceprint-SDK-Android). 
 
@@ -92,11 +95,11 @@ To integrate into native apps:
     import com.iovation.mobile.android.FraudForceManager;
     ```
 
-2. Create a configuration object with your subscriber key, and enable or disable network calls to iovation servers. Entering the subscriber key is strongly recommended for all integrations, and it is required for network connections.
+2. Create a configuration object with your subscriber key, and enable or disable network calls to TransUnion servers. Entering the subscriber key is strongly recommended for all integrations, and it is required for network connections.
 
     > __NOTE__ Please review the Network Calls section of this document before enabling network calls.
     
-    > __IMPORTANT__ Please contact your iovation customer success team representative to receive your subscriber key.
+    > __IMPORTANT__ Please contact your TransUnion customer success team representative to receive your subscriber key.
 
     ```
     FraudForceConfiguration configuration = new FraudForceConfiguration.Builder()
@@ -172,7 +175,7 @@ Integrate into hybrid apps by implementing the following workflow for collecting
     import com.iovation.mobile.android.FraudForceManager;
     ```
 
-2. Create a configuration object with your subscriber key, and enable or disable network calls to iovation servers. Entering the subscriber key is strongly recommended for all integrations, and it is required for network connections.
+2. Create a configuration object with your subscriber key, and enable or disable network calls to TransUnion servers. Entering the subscriber key is strongly recommended for all integrations, and it is required for network connections.
 
     > __NOTE__ Please review the Network Calls section of this document before enabling network calls.
 
@@ -227,17 +230,17 @@ Integrate into hybrid apps by implementing the following workflow for collecting
 			iframe = null;  
 		}
 
-6.  You must inject the blackbox into a DOM object for collection. To do this, call the `inject_bb` function with the ID of the DOM object, which will automatically call the `shouldOverrideUrlLoading()` function. For example, set `ID` to a hidden form field where the blackbox will be stored. When the form containing the field is submitted, the blackbox is returned to your server back-end, and can then be sent to iovation to evaluate along with the transaction.
+6.  You must inject the blackbox into a DOM object for collection. To do this, call the `inject_bb` function with the ID of the DOM object, which will automatically call the `shouldOverrideUrlLoading()` function. For example, set `ID` to a hidden form field where the blackbox will be stored. When the form containing the field is submitted, the blackbox is returned to your server back-end, and can then be sent to TransUnion to evaluate along with the transaction.
 
 ## Network Calls
 
-The SDK includes the ability to make a network call to iovation's service. This enables additional functionality in the FraudForce SDK, including:
+The SDK includes the ability to make a network call to TransUnion TruValidate's service. This enables additional functionality in the Device Risk SDK, including:
 
  - Collect additional network information
  - Configuration updates to root detection
  - Collect information on potential high-risk applications on the device
 
- By default this functionality is disabled and will need to be enabled in the configuration object. Usage of this feature requires a subscriber key be provided. Please contact your iovation client representative to acquire a subscriber key.
+ By default this functionality is disabled and will need to be enabled in the configuration object. Usage of this feature requires a subscriber key be provided. Please contact your TransUnion client representative to acquire a subscriber key.
 
 ## Compiling The Sample App in Android Studio
 
