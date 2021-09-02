@@ -1,18 +1,11 @@
-package com.iovation.mobile.android.sample.androidstudiosampleapp;
+package com.iovation.mobile.android.sample.sampleapp;
 
 import android.app.Activity;
 import android.graphics.Bitmap;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.webkit.JsResult;
-import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.TextView;
 
-import com.iovation.mobile.android.FraudForceConfiguration;
 import com.iovation.mobile.android.FraudForceManager;
 
 /**

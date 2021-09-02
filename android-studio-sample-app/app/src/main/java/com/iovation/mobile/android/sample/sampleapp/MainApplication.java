@@ -1,4 +1,4 @@
-package com.iovation.mobile.android.sample.androidstudiosampleapp;
+package com.iovation.mobile.android.sample.sampleapp;
 
 import android.app.Application;
 

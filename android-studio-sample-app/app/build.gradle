@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion 31
 
     defaultConfig {
-        applicationId "com.iovation.mobile.android.sample.androidstudiosampleapp"
+        applicationId "com.iovation.mobile.android.sample.sampleapp"
         minSdkVersion 21
-        targetSdkVersion 30
-        versionCode 1
-        versionName "4.3.0"
+        targetSdkVersion 31
+        versionCode 2
+        versionName "4.3.1"
     }
     buildTypes {
         release {
@@ -24,7 +24,6 @@ android {
 buildscript {
     repositories {
         mavenLocal()
-        jcenter()
         mavenCentral()
         flatDir {
             dirs 'libs'
@@ -34,7 +33,6 @@ buildscript {
 
 repositories {
     mavenLocal()
-    jcenter()
     mavenCentral()
     flatDir {
         dirs 'libs'
