@@ -1,11 +1,6 @@
+name: Build & Archive App
 
-# This is a basic workflow to help you get started with Actions
-
-name: Test & Archive
-
-# Controls when the action will run.
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
   push:
     branches:
       - main
@@ -19,6 +14,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./android-studio-sample-app
 
     steps:
       - name: Checkout
