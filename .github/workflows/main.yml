@@ -37,8 +37,8 @@ jobs:
         with:
           name: APK & AAB artifacts
           path: |
-            app/build/outputs/apk/
-            app/build/outputs/bundle/
+            **/*.apk
+            **/*.aab
 
       - name: Send Slack Message
         uses: 8398a7/action-slack@v3
