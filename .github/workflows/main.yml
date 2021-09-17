@@ -27,7 +27,7 @@ jobs:
         run: ./gradlew clean --refresh-dependencies --stacktrace
 
       - name: Build APK
-        run: ./gradlew --stacktrace buildRelease
+        run: ./gradlew --stacktrace assembleRelease
 
       - name: Build AAB
         run: ./gradlew --stacktrace bundleRelease
@@ -37,8 +37,7 @@ jobs:
         with:
           name: APK & AAB artifacts
           path: |
-            **/*.apk
-            **/*.aab
+            **/app/build/outputs/
 
       - name: Send Slack Message
         uses: 8398a7/action-slack@v3
