@@ -1,4 +1,4 @@
-package com.iovation.mobile.android.sample.androidstudiosampleapp;
+package com.iovation.mobile.android.sample.sampleapp;
 
 import android.app.Activity;
 import android.os.AsyncTask;
@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.iovation.mobile.android.FraudForceConfiguration;
 import com.iovation.mobile.android.FraudForceManager;
 
 public class NativeActivity extends Activity {

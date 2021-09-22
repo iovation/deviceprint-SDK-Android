@@ -1,0 +1,19 @@
+name: Draft Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "fraudforce-lib*.aar"
+          draft: true
+          bodyFile: "release-notes.md"
+          token: ${{ secrets.GITHUB_TOKEN }}

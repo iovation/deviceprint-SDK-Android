@@ -1,0 +1,50 @@
+name: Build & Archive App
+
+on:
+  push:
+    branches:
+      - main
+      - 'release/**'
+  pull_request:
+    branches: [ main ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./android-studio-sample-app
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Clean
+        run: ./gradlew clean --refresh-dependencies --stacktrace
+
+      - name: Build APK
+        run: ./gradlew --stacktrace assembleRelease
+
+      - name: Build AAB
+        run: ./gradlew --stacktrace bundleRelease
+
+      - name: Archive Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: APK & AAB artifacts
+          path: |
+            **/app/build/outputs/apk/
+            **/app/build/outputs/bundle/
+            !**/*.json
+
+      - name: Send Slack Message
+        uses: 8398a7/action-slack@v3
+        with:
+          status: ${{ job.status }}
+          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()
