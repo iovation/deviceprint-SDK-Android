@@ -21,26 +21,7 @@ android {
     }
 }
 
-buildscript {
-    repositories {
-        mavenLocal()
-        mavenCentral()
-        flatDir {
-            dirs 'libs'
-        }
-    }
-}
-
-repositories {
-    mavenLocal()
-    mavenCentral()
-    flatDir {
-        dirs 'libs'
-    }
-}
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation(name:'fraudforce-lib-release-4.3.0', ext:'aar')
-//    api files('libs/fraudforce-lib-release-4.3.0.aar')
+    implementation files('libs/fraudforce-lib-release-4.3.1.aar')
 }
