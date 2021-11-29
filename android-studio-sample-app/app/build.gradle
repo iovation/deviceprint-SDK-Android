@@ -7,8 +7,8 @@ android {
         applicationId "com.iovation.mobile.android.sample.sampleapp"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 2
-        versionName "4.3.1"
+        versionCode 3
+        versionName "4.3.2"
     }
     buildTypes {
         release {
