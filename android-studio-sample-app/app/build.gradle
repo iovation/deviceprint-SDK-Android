@@ -7,8 +7,8 @@ android {
         applicationId "com.iovation.mobile.android.sample.sampleapp"
         minSdkVersion 21
         targetSdkVersion 31
-        versionCode 2
-        versionName "4.3.1"
+        versionCode 3
+        versionName "4.3.2"
     }
     buildTypes {
         release {
@@ -23,5 +23,5 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation files('libs/fraudforce-lib-release-4.3.1.aar')
+    implementation files('libs/fraudforce-lib-release-4.3.2.aar')
 }
