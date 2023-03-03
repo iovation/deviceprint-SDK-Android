@@ -17,7 +17,7 @@ public class MainApplication extends Application {
         .subscriberKey("REPLACE WITH SUBSCRIBER KEY")
         .build();
 
-    FraudForceManager fraudForceManager = FraudForceManager.getInstance();
+    FraudForceManager fraudForceManager = FraudForceManager.INSTANCE;
     fraudForceManager.initialize(fraudForceConfiguration, getApplicationContext());
     super.onCreate();
   }
