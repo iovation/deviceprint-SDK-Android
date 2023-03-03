@@ -41,17 +41,17 @@ Version 5.0.0 of the TruValidate Device Risk SDK for Android supports Android 5.
 
 ## Installing the Device Risk SDK for Android
 
-1.  Download iovation-android-sdk-5.0.0.zip from here: [iovation Mobile SDK for Android](https://github.com/iovation/deviceprint-SDK-Android). 
+1. Download iovation-android-sdk-5.0.0.zip from here: [iovation Mobile SDK for Android](https://github.com/iovation/deviceprint-SDK-Android). 
 
-2.  Unzip iovation-android-sdk-5.0.0.zip.
+2. Unzip iovation-android-sdk-5.0.0.zip.
 
-3.  Depending on your IDE, do one of the following:
+3. Depending on your IDE, do one of the following:
 
-	- In __Maven__, deploy the AAR file to your local Maven repository, using maven-deploy. For more information, see [Guide to installing 3rd party JARs](http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html).
+    - In __Maven__, deploy the AAR file to your local Maven repository, using maven-deploy. For more information, see [Guide to installing 3rd party JARs](http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html).
 
-	- If you are using __Gradle__, add the *fraudforce-lib-release-5.0.0.aar* file to your application module's libs directory. Then, edit the *build.gradle* file in order to add the libs directory as a flat-file repository to the `buildscript` and `repository` sections. This makes the fraudforce-lib-release-5.0.0.aar file accessible to Gradle.
+    - If you are using __Gradle__, add the *fraudforce-lib-release-5.0.0.aar* file to your application module's libs directory. Then, edit the *build.gradle* file in order to add the libs directory as a flat-file repository to the `buildscript` and `repository` sections. This makes the fraudforce-lib-release-5.0.0.aar file accessible to Gradle.
 
-		```
+        ```
         buildscript {
             repositories {
                 flatDir {
@@ -65,15 +65,15 @@ Version 5.0.0 of the TruValidate Device Risk SDK for Android supports Android 5.
                 dirs 'libs'
             }
         }
-		```
-		Also in the application module's `build.gradle` file, make sure that fraudforce-lib-release-5.0.0 is included as a dependency:
+        ```
+        Also in the application module's `build.gradle` file, make sure that fraudforce-lib-release-5.0.0 is included as a dependency:
 	
-		```
+        ```
         dependencies {
             ...
             implementation(name:'fraudforce-lib-release-5.0.0', ext:'aar')
         }
-		```
+        ```
 
         Alternatively, you can include the dependency without exposing your libs folder as a repository by declaring it in the module's `build.gradle` file as follows:
 
@@ -82,9 +82,19 @@ Version 5.0.0 of the TruValidate Device Risk SDK for Android supports Android 5.
             ...
             implementation files('libs/fraudforce-lib-release-5.0.0.aar')
         }
-		```
+        ```
 		
-		Save the `build.gradle` file.
+        Save the `build.gradle` file.
+
+4. If you are not already using Java 8 in your project, please include the following code into your application's 'build.gradle' file.
+    ```
+    android {
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+    }
+    ```
 	
 ## Integrating into Native Apps
 
