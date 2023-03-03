@@ -29,7 +29,7 @@ public class WebViewActivity extends Activity {
         wv.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                FraudForceManager.getInstance().refresh(wv.getContext());
+                FraudForceManager.INSTANCE.refresh(wv.getContext());
                 super.onPageStarted(view, url, favicon);
             }
 
@@ -38,7 +38,7 @@ public class WebViewActivity extends Activity {
                 String[] ref = url.split("#");
                 if (url.startsWith("iov://") && ref.length > 1 && ref[1] != null) {
                     String injectedJavascript="javascript:(function() { " +
-                            "document.getElementById('" + ref[1] + "').value = '" + FraudForceManager.getInstance().getBlackbox(getApplicationContext()) +
+                            "document.getElementById('" + ref[1] + "').value = '" + FraudForceManager.INSTANCE.getBlackbox(getApplicationContext()) +
                             "';})()";
                     wv.loadUrl(injectedJavascript);
                     return true;

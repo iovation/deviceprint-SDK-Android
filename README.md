@@ -1,6 +1,4 @@
-Title: TransUnion TruValidate Device Risk Android SDK Library
-
-# TRUVALIDATE DEVICE RISK ANDROID SDK LIBRARY
+# TRANSUNION TRUVALIDATE DEVICE RISK ANDROID SDK LIBRARY
 
 ## What is TruValidate Device Risk?
 **FraudForce is now Device Risk. Our device-based products, such as Device Risk and Device-Based Authentication (formerly ClearKey), are critical components of our fraud and identity solutions; the new names make it easy to quickly understand our extensive capabilities. We have united these solutions under the TransUnion TruValidate brand. We have taken care not to update anything that might affect your implementations; as a result you'll still see legacy names in some places.**
@@ -20,8 +18,8 @@ The Device Risk SDK integrates with native and hybrid apps. Hybrid apps mix nati
 
 |                                 |                                                                                                                   |
 |---------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| **SDK Filename**                | fraudforce-lib-release-4.3.2.aar                                                                                  |
-| **Version**                     | 4.3.2                                                                                                             |
+| **SDK Filename**                | fraudforce-lib-release-5.0.0.aar                                                                                  |
+| **Version**                     | 5.0.0                                                                                                            |
 | **Package**                     | com.iovation.mobile.android.FraudForce                                                                            |
 | **Android SDK Dependencies**    | Android SDK 5.0 or higher (SDK level 21)                                                                          |
 | **Library Dependencies**        | None                                                                                                              |
@@ -39,19 +37,19 @@ The Device Risk SDK integrates with native and hybrid apps. Hybrid apps mix nati
 
 > __NOTE__ Android 10 introduced the ACCESS_BACKGROUND_LOCATION permission, protected at the dangerous level as is the case for ACCESS_FINE_LOCATION. Refer to the official Android documentation for when to incorporate this permission.
 
-Version 4.3.2 of the TruValidate Device Risk SDK for Android supports Android 5.0 or higher.
+Version 5.0.0 of the TruValidate Device Risk SDK for Android supports Android 5.0 or higher.
 
 ## Installing the Device Risk SDK for Android
 
-1.  Download iovation-android-sdk-4.3.2.zip from here: [iovation Mobile SDK for Android](https://github.com/iovation/deviceprint-SDK-Android). 
+1.  Download iovation-android-sdk-5.0.0.zip from here: [iovation Mobile SDK for Android](https://github.com/iovation/deviceprint-SDK-Android). 
 
-2.  Unzip iovation-android-sdk-4.3.2.zip.
+2.  Unzip iovation-android-sdk-5.0.0.zip.
 
 3.  Depending on your IDE, do one of the following:
 
 	- In __Maven__, deploy the AAR file to your local Maven repository, using maven-deploy. For more information, see [Guide to installing 3rd party JARs](http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html).
 
-	- If you are using __Gradle__, add the *fraudforce-lib-release-4.3.2.aar* file to your application module's libs directory. Then, edit the *build.gradle* file in order to add the libs directory as a flat-file repository to the `buildscript` and `repository` sections. This makes the fraudforce-lib-release-4.3.2.aar file accessible to Gradle.
+	- If you are using __Gradle__, add the *fraudforce-lib-release-5.0.0.aar* file to your application module's libs directory. Then, edit the *build.gradle* file in order to add the libs directory as a flat-file repository to the `buildscript` and `repository` sections. This makes the fraudforce-lib-release-5.0.0.aar file accessible to Gradle.
 
 		```
         buildscript {
@@ -68,12 +66,12 @@ Version 4.3.2 of the TruValidate Device Risk SDK for Android supports Android 5.
             }
         }
 		```
-		Also in the application module's `build.gradle` file, make sure that fraudforce-lib-release-4.3.2 is included as a dependency:
+		Also in the application module's `build.gradle` file, make sure that fraudforce-lib-release-5.0.0 is included as a dependency:
 	
 		```
         dependencies {
             ...
-            implementation(name:'fraudforce-lib-release-4.3.2', ext:'aar')
+            implementation(name:'fraudforce-lib-release-5.0.0', ext:'aar')
         }
 		```
 
@@ -82,7 +80,7 @@ Version 4.3.2 of the TruValidate Device Risk SDK for Android supports Android 5.
         ```
         dependencies {
             ...
-            implementation('libs/fraudforce-lib-release-4.3.2.aar')
+            implementation files('libs/fraudforce-lib-release-5.0.0.aar')
         }
 		```
 		
@@ -123,7 +121,7 @@ To integrate into native apps:
 3. Initialize the FraudForceManager class using the generated FraudForceConfiguration object, and the application context.
 
     ```
-    FraudForceManager fraudForceManager = FraudForceManager.getInstance();
+    FraudForceManager fraudForceManager = FraudForceManager.INSTANCE;
     fraudForceManager.initialize(configuration, context);
     ```
 
@@ -134,13 +132,13 @@ To integrate into native apps:
     > __NOTE__: As with initialization, pass the application context when refreshing.
 
     ```
-    FraudForceManager.getInstance().refresh(context);
+    FraudForceManager.INSTANCE.refresh(context);
     ```
 
-4. To generate the blackbox, call the getBlackbox(Context context) function on an instance of FraudForceManager. This method is a **blocking** call so it is **recommended** to call it on a background thread/coroutine.
+5. To generate the blackbox, call the getBlackbox(Context context) function on an instance of FraudForceManager. This method is a **blocking** call so it is **recommended** to call it on a background thread/coroutine.
 
     ```
-    String blackbox = FraudForceManager.getInstance().getBlackbox(context);
+    String blackbox = FraudForceManager.INSTANCE.getBlackbox(context);
     ```
 
 ## Integrating into Hybrid Apps
@@ -182,7 +180,7 @@ Integrate into hybrid apps by implementing the following workflow for collecting
 3. Initialize the FraudForceManager class using the generated FraudForceConfiguration object, and the application context.
 
     ```
-    FraudForceManager fraudForceManager = FraudForceManager.getInstance();
+    FraudForceManager fraudForceManager = FraudForceManager.INSTANCE;
     fraudForceManager.initialize(configuration, context);
     ```
 
@@ -192,7 +190,7 @@ Integrate into hybrid apps by implementing the following workflow for collecting
 	wv.setWebViewClient(new WebViewClient() {
         @Override
         public void onPageStarted(WebView view, String url, Bitmap favicon) {
-            FraudForceManager.getInstance().refresh(getContext());
+            FraudForceManager.INSTANCE.refresh(getContext());
             super.onPageStarted(view, url, favicon);
         }
 
@@ -202,7 +200,7 @@ Integrate into hybrid apps by implementing the following workflow for collecting
             if (url.startsWith("iov://") && ref.length > 1 && ref[1] != null) {
             String injectedJavascript="javascript:(function() { " +
                 "document.getElementById('" + ref[1] + "').value = '"
-                + FraudForceManager.getInstance().getBlackbox(wv.getContext())
+                + FraudForceManager.INSTANCE.getBlackbox(wv.getContext())
                 + "';})()";
                 wv.loadUrl(injectedJavascript);
                 return true;
@@ -239,7 +237,7 @@ The SDK includes the ability to make a network call to TransUnion TruValidate's 
 
 1 In Android Studio, select File | Open or click **Open Existing Android Studio Project** from the quick-start screen.
 
-2. From the directory where you unzipped fraudforce-lib-release-4.3.2.zip or cloned the repo, open the **android-studio-sample-app** directory.
+2. From the directory where you unzipped fraudforce-lib-release-5.0.0.zip or cloned the repo, open the **android-studio-sample-app** directory.
 
 3. In the project navigation view, open `src/main/java/com/iovation/mobile/android/sample/MainActivity.java`
 
@@ -254,6 +252,18 @@ The SDK includes the ability to make a network call to TransUnion TruValidate's 
 6. When the app compiles successfully, you will see a view with a button that allows you to display a blackbox.
 
 ## Changelog
+
+### 5.0.0
+- **Java 8 is now required.**
+- **The SDK has migrated to Kotlin (1.5.30).**
+    - If your application does not already include the Kotlin standard library (i.e. your application
+    - is written entirely in Java), then you must include the kotlin stdlib as a dependency.
+- **FraudForceManager can be accessed as a Kotlin object or via FraudForceManager.INSTANCE when using Java).**
+- Targeting Android 12 (API 31).
+- Changes to cryptography uses.
+- Adjusted collection details.
+- Improvements to detail caching.
+- Fixed Proguard rules.
 
 ### 4.3.2
 - Adjusted root detection.

@@ -21,7 +21,7 @@ public class NativeActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        FraudForceManager.getInstance().refresh(getApplicationContext());
+        FraudForceManager.INSTANCE.refresh(getApplicationContext());
 
         setContentView(R.layout.activity_main);
     }
@@ -39,7 +39,7 @@ public class NativeActivity extends Activity {
     private class PrintThread extends AsyncTask<Void, Void, String> {
         @Override
         protected String doInBackground(Void... voids) {
-            return FraudForceManager.getInstance().getBlackbox(getApplicationContext());
+            return FraudForceManager.INSTANCE.getBlackbox(getApplicationContext());
         }
 
         @Override
