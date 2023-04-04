@@ -109,30 +109,50 @@ Version 5.0.0 of the TruValidate Device Risk SDK for Android supports Android 5.
 To integrate into native apps:
 
 1. In your Application class, import the `FraudForceManager` and `FraudForceConfiguration` objects.
-
+	
+    Java	
     ```
     import com.iovation.mobile.android.FraudForceConfiguration;
     import com.iovation.mobile.android.FraudForceManager;
     ```
+    Kotlin
+    ```
+    import com.iovation.mobile.android.FraudForceConfiguration
+    import com.iovation.mobile.android.FraudForceManager
+    ```
+    
 
 2. Create a configuration object with your subscriber key, and enable or disable network calls to TransUnion servers. Entering the subscriber key is strongly recommended for all integrations, and it is required for network connections.
 
     > __NOTE__ Please review the Network Calls section of this document before enabling network calls.
     
     > __IMPORTANT__ Please contact your TransUnion customer success team representative to receive your subscriber key.
-
+    
+    Java
     ```
     FraudForceConfiguration configuration = new FraudForceConfiguration.Builder()
         .subscriberKey([YOUR-SUBSCRIBER-KEY-HERE])
         .enableNetworkCalls(true) // Defaults to false if left out of configuration
         .build();
     ```
+    Kotlin
+    ```
+    val configuration = FraudForceConfiguration.Builder()
+            .subscriberKey([YOUR-SUBSCRIBER-KEY-HERE])
+            .enableNetworkCalls(true)
+            .build()
+    ```
 
 3. Initialize the FraudForceManager class using the generated FraudForceConfiguration object, and the application context.
 
+    Java
     ```
     FraudForceManager fraudForceManager = FraudForceManager.INSTANCE;
     fraudForceManager.initialize(configuration, context);
+    ```
+    Kotlin
+    ```
+    FraudForceManager.initialize(configuration, applicationContext)
     ```
 
 4. Call the `refresh()` method in the same Activity/Fragment/ViewModel where `getBlackbox()` will be called. The integrating application only needs to call this method on the Fragments where the `getBlackbox()` method will be called.
@@ -140,15 +160,25 @@ To integrate into native apps:
     > __NOTE__: This method calls updates the geolocation and network information, if enabled.
 
     > __NOTE__: As with initialization, pass the application context when refreshing.
-
+    
+    Java
     ```
     FraudForceManager.INSTANCE.refresh(context);
+    ```
+    Kotlin
+    ```
+    FraudForceManager.refresh(applicationContext)
     ```
 
 5. To generate the blackbox, call the getBlackbox(Context context) function on an instance of FraudForceManager. This method is a **blocking** call so it is **recommended** to call it on a background thread/coroutine.
 
+    Java
     ```
     String blackbox = FraudForceManager.INSTANCE.getBlackbox(context);
+    ```
+    Kotlin
+    ```
+    val blackbox : String = FraudForceManager.getBlackbox(applicationContext)
     ```
 
 ## Integrating into Hybrid Apps
@@ -249,7 +279,7 @@ The SDK includes the ability to make a network call to TransUnion TruValidate's 
 
 2. From the directory where you unzipped fraudforce-lib-release-5.0.0.zip or cloned the repo, open the **android-studio-sample-app** directory.
 
-3. In the project navigation view, open `src/main/java/com/iovation/mobile/android/sample/MainActivity.java`
+3. In the project navigation view, open `app/src/main/java/com/iovation/mobile/android/sample/MainActivity.java` to run the Java sample app. To run the Kotlin sample app, open `kotlinApp/src/main/java/com/iovation/mobile/android/sample/MainActivity.kt`.
 
 4. Right-click the file editing view and select _Run Main Activity_.
 
