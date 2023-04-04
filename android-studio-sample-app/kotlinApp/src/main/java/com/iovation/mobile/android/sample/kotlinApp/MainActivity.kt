@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private suspend fun getBlackbox() : String{
+    private fun getBlackbox() : String {
         return FraudForceManager.getBlackbox(applicationContext)
     }
 

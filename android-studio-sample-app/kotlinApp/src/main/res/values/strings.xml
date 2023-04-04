@@ -2,7 +2,7 @@
 <resources>
     <string name="header">Click button to generate blackbox:</string>
     <string name="print_me">Generate Blackbox</string>
-    <string name="app_name">Iovation DeviceRisk</string>
+    <string name="app_name">TransUnion DeviceRisk</string>
     <string name="blackbox_label">Blackbox Result:</string>
     <string name="printing_wait_msg">Please wait while we print your device information</string>
     <string name="action_settings">SETTINGS</string>

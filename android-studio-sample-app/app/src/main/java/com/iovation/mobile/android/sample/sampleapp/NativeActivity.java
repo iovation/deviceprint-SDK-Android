@@ -44,7 +44,6 @@ public class NativeActivity extends Activity {
 
         @Override
         protected void onPostExecute(String bb) {
-            System.out.println(bb);
             TextView bbResultLabel = (TextView) findViewById(R.id.bbResultLabel);
             bbResultLabel.setText(R.string.bbResultLabel);
             bbResultLabel.setVisibility(View.VISIBLE);
