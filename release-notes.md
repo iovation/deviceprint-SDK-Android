@@ -1,11 +1,2 @@
 ### What's new
-- **Java 8 is now required.**
-- **The SDK has migrated to Kotlin (1.5.30).**
-    - If your application does not already include the Kotlin standard library (i.e. your application
-    - is written entirely in Java), then you must include the kotlin stdlib as a dependency.
-- **FraudForceManager can be accessed as a Kotlin object or via FraudForceManager.INSTANCE when using Java).**
-- Targeting Android 12 (API 31).
-- Changes to cryptography uses.
-- Adjusted collection details.
-- Improvements to detail caching.
-- Fixed Proguard rules.
+- Adjusted collection details
