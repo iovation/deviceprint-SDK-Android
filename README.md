@@ -180,6 +180,21 @@ To integrate into native apps:
     ```
     val blackbox : String = FraudForceManager.getBlackbox(applicationContext)
     ```
+6. To generate the blackbox using a coroutine, declare the desired scope and call the getBlackbox(Context context) function on an instance of FraudForceManager. You can use the withContext(context: CoroutineContext) suspend function to utilize the blackbox data in another scope.
+   
+    Kotlin Coroutines Example
+    ```
+    private val uiScope = CoroutineScope(Dispatchers.IO)
+
+    uiScope.launch {
+        ...
+        val blackbox : String = FraudForceManager.getBlackbox(applicationContext)
+        withContext(Dispatchers.Main) {
+            ...
+            useBlackbox(blackbox)
+        }
+    }
+    ```
 
 ## Integrating into Hybrid Apps
 
