@@ -1,427 +1,442 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
-	<meta charset="utf-8"/>
-	<title>iovation FraudForce Android SDK Library</title>
+    <meta charset="utf-8"/>
+    <title>TransUnion FraudForce Android SDK Library</title>
 </head>
 <body>
-
-<h1 id="iovationfraudforceandroidsdklibrary">IOVATION FRAUDFORCE ANDROID SDK LIBRARY</h1>
-
+<h1 id="transunion-truvalidate-device-risk-android-sdk-library">TRANSUNION TRUVALIDATE DEVICE RISK ANDROID SDK LIBRARY</h1>
+<h2 id="what-is-truvalidate-device-risk-">What is TruValidate Device Risk?</h2>
+<p><strong>FraudForce is now Device Risk. Our device-based products, such as Device Risk and Device-Based Authentication (formerly ClearKey), are critical components of our fraud and identity solutions; the new names make it easy to quickly understand our extensive capabilities. We have united these solutions under the TransUnion TruValidate brand. We have taken care not to update anything that might affect your implementations; as a result you&#39;ll still see legacy names in some places.</strong></p>
 <h2 id="overview">Overview</h2>
-
-<p>Follow these steps to implement the iovation FraudForce SDK for Android.</p>
-
-<h2 id="aboutmobileintegration">About Mobile Integration</h2>
-
-<p>iovation identifies devices through information collected by the iovation FraudForce SDK run on an end-user’s mobile device. The FraudForce SDK inspects the device to generate a blackbox that contains all device information available. This blackbox must then be transmitted to your servers to be used in a risk check.</p>
-
-<p>The iovation FraudForce SDK integrates with native and hybrid apps. Hybrid apps mix native code with content that runs inside a web view.</p>
-
-<h2 id="androidintegrationfilesandrequirements">Android Integration Files and Requirements</h2>
-
+<p>Follow these steps to implement the TruValidate Device Risk SDK for Android.</p>
+<h2 id="about-mobile-integration">About Mobile Integration</h2>
+<p>TransUnion identifies devices through information collected by the Device Risk SDK run on an end-user’s mobile device. The Device Risk SDK inspects the device to generate a blackbox that contains all device information available. This blackbox must then be transmitted to your servers to be used in a risk check.</p>
+<p>The Device Risk SDK integrates with native and hybrid apps. Hybrid apps mix native code with content that runs inside a web view.</p>
+<h2 id="android-integration-files-and-requirements">Android Integration Files and Requirements</h2>
 <table>
-<colgroup>
-<col />
-<col />
-</colgroup>
-
-<thead>
-<tr>
-	<th>         </th>
-	<th>                             </th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-	<td> <strong>SDK Filename</strong>    </td>
-	<td> fraudforce-lib-release-4.3.0.aar                     </td>
-</tr>
-<tr>
-	<td> <strong>Version</strong>      </td>
-	<td> 4.3.0                            </td>
-</tr>
-<tr>
-	<td> <strong>Package</strong>      </td>
-	<td> com.iovation.mobile.android.FraudForce                   </td>
-</tr>
-<tr>
-	<td> <strong>Android SDK Dependencies</strong> </td>
-	<td> Android SDK 5.0 or higher (SDK level 21)                   </td>
-</tr>
-<tr>
-	<td> <strong>Library Dependencies</strong>  </td>
-	<td> None                            </td>
-</tr>
-<tr>
-	<td> <strong>Required Permissions</strong>  </td>
-	<td> None                            </td>
-</tr>
-<tr>
-	<td> <strong>Optional Permissions</strong>  </td>
-	<td> BLUETOOTH, CAMERA, ACCESS_WIFI_STATE, READ_PHONE_STATE, ACCESS_FINE_LOCATION, ACCESS_BACKGROUND_LOCATION, GET_ACCOUNTS, ACCESS_NETWORK_STATE </td>
-</tr>
-<tr>
-	<td> <strong>Supported NDK Architectures</strong> </td>
-	<td> x86, x86_64, arm64-v8a, armeabi-v7a                    </td>
-</tr>
-</tbody>
+    <thead>
+    <tr>
+        <th></th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><strong>SDK Filename</strong></td>
+        <td>fraudforce-lib-release-5.2.0.aar</td>
+    </tr>
+    <tr>
+        <td><strong>Version</strong></td>
+        <td>5.2.0</td>
+    </tr>
+    <tr>
+        <td><strong>Package</strong></td>
+        <td>com.iovation.mobile.android.FraudForce</td>
+    </tr>
+    <tr>
+        <td><strong>Android SDK Dependencies</strong></td>
+        <td>Android SDK 5.0 or higher (SDK level 21)</td>
+    </tr>
+    <tr>
+        <td><strong>Library Dependencies</strong></td>
+        <td>None</td>
+    </tr>
+    <tr>
+        <td><strong>Required Permissions</strong></td>
+        <td>None</td>
+    </tr>
+    <tr>
+        <td><strong>Optional Permissions</strong></td>
+        <td>BLUETOOTH (up to Android 11), BLUETOOTH_CONNECT (starting on Android 12), CAMERA, ACCESS_WIFI_STATE,</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>READ_PHONE_STATE, ACCESS_FINE_LOCATION, ACCESS_BACKGROUND_LOCATION,</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>GET_ACCOUNTS, ACCESS_NETWORK_STATE</td>
+    </tr>
+    <tr>
+        <td><strong>Supported NDK Architectures</strong></td>
+        <td>x86, x86_64, arm64-v8a, armeabi-v7a</td>
+    </tr>
+    </tbody>
 </table>
-
 <blockquote>
-<p><strong>NOTE</strong> Regarding Android 11 background location changes: The FraudForce SDK neither requires nor requests location when the application is in a background state.</p>
-<p><strong>NOTE</strong> If the permissions listed are not required by the application, the values collected using those permissions will be ignored. The permissions are not required to obtain a usable blackbox, but they do help obtain some unique device information.</p>
-<p><strong>NOTE</strong> Android 10 introduced the ACCESS_BACKGROUND_LOCATION permission, protected at the dangerous level as is the case for ACCESS_FINE_LOCATION. Refer to the official Android documentation for when and how to incorporate this permission.</p>
+    <p><strong>NOTE</strong> Android 12 introduced the BLUETOOTH_CONNECT permission, protected at the dangerous level. Refer to the <a href="https://developer.android.com/about/versions/12/features/bluetooth-permissions">official Android documentation</a> on how to include it.</p>
+    <p><strong>NOTE</strong> Regarding Android 11 background location changes: The Device Risk SDK neither requires nor requests location when the application is in a background state.</p>
+    <p><strong>NOTE</strong> If the permissions listed are not required by the application, the values collected using those permissions will be ignored. The permissions are not required to obtain a usable blackbox, but they do help obtain some unique device information.</p>
+    <p><strong>NOTE</strong> Android 10 introduced the ACCESS_BACKGROUND_LOCATION permission, protected at the dangerous level as is the case for ACCESS_FINE_LOCATION. Refer to the official Android documentation for when to incorporate this permission.</p>
 </blockquote>
-
-<p>Version 4.3.0 of the iovation FraudForce SDK for Android supports Android 5.0 or higher.</p>
-
-<h2 id="installingthefraudforcesdkforandroid">Installing the FraudForce SDK for Android</h2>
-
+<p>Version 5.2.0 of the TruValidate Device Risk SDK for Android supports Android 5.0 or higher.</p>
+<h2 id="installing-the-device-risk-sdk-for-android">Installing the Device Risk SDK for Android</h2>
 <ol>
-<li><p>Download iovation-android-sdk-4.3.0.zip from here: <a href="https://github.com/iovation/deviceprint-SDK-Android">iovation Mobile SDK for Android</a>. </p></li>
-<li><p>Unzip iovation-android-sdk-4.3.0.zip.</p></li>
-<li><p>Depending on your IDE, do one of the following:</p>
+    <li><p>Download iovation-android-sdk-5.2.0.zip from here: <a href="https://github.com/iovation/deviceprint-SDK-Android">iovation Mobile SDK for Android</a>. </p>
+    </li>
+    <li><p>Unzip iovation-android-sdk-5.2.0.zip.</p>
+    </li>
+    <li><p>Depending on your IDE, do one of the following:</p>
+        <ul>
+            <li><p>In <strong>Maven</strong>, deploy the AAR file to your local Maven repository, using maven-deploy. For more information, see <a href="http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html">Guide to installing 3rd party JARs</a>.</p>
+            </li>
+            <li><p>If you are using <strong>Gradle</strong>, add the <em>fraudforce-lib-release-5.2.0.aar</em> file to your application module&#39;s libs directory. Then, edit the <em>build.gradle</em> file in order to add the libs directory as a flat-file repository to the <code>buildscript</code> and <code>repository</code> sections. This makes the fraudforce-lib-release-5.2.0.aar file accessible to Gradle.</p>
+                <pre><code>  <span class="hljs-section">buildscript</span> {
+      <span class="hljs-section">repositories</span> {
+          <span class="hljs-section">flatDir</span> {
+              <span class="hljs-attribute">dirs</span> <span class="hljs-string">'libs'</span>
+          }
+      }
+  }
 
-<ul>
-<li><p>In <strong>Eclipse and Maven</strong>, deploy the AAR file to your local Maven repository, using maven-deploy. For more information, see <a href="http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html">Guide to installing 3rd party JARs</a>.</p></li>
-<li><p>If you are using <strong>Android Studio with Gradle</strong>, add the <em>fraudforce-lib-release-4.3.0.aar</em> file to your application module&#8217;s libs directory. Then, edit the <em>build.gradle</em> file in order to add the libs directory as a flat-file repository to the <code>buildscript</code> and <code>repository</code> sections. This makes the fraudforce-lib-release-4.3.0.aar file accessible to Gradle.</p>
-
-<pre><code>buildscript {
-    repositories {
-        flatDir {
-            dirs 'libs'
-        }
-    }
-}
-
-repositories {
-    flatDir {
-        dirs 'libs'
-    }
-}
-</code></pre>
-
-<p>Also in the application module&#8217;s <code>build.gradle</code> file, make sure that fraudforce-lib-release-4.3.0 is a compile-time dependency:</p>
-
-<pre><code>dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile(name:'fraudforce-lib-release-4.3.0', ext:'aar')
-}
-</code></pre>
-
-<p>Save the <code>build.gradle</code> file.</p></li>
-</ul></li>
+  repositories {
+      <span class="hljs-section">flatDir</span> {
+          <span class="hljs-attribute">dirs</span> <span class="hljs-string">'libs'</span>
+      }
+  }
+</code></pre><p>  Also in the application module&#39;s <code>build.gradle</code> file, make sure that fraudforce-lib-release-5.2.0 is included as a dependency:</p>
+                <pre><code>  <span class="hljs-selector-tag">dependencies</span> {
+      ...
+      <span class="hljs-selector-tag">implementation</span>(<span class="hljs-attribute">name</span>:<span class="hljs-string">'fraudforce-lib-release-5.2.0'</span>, <span class="hljs-attribute">ext</span>:<span class="hljs-string">'aar'</span>)
+  }
+</code></pre><p>  Alternatively, you can include the dependency without exposing your libs folder as a repository by declaring it in the module&#39;s <code>build.gradle</code> file as follows:</p>
+                <pre><code>  dependencies {
+      ...
+      <span class="hljs-keyword">implementation</span> files(<span class="hljs-string">'libs/fraudforce-lib-release-5.2.0.aar'</span>)
+  }
+</code></pre><p>  Save the <code>build.gradle</code> file.</p>
+            </li>
+        </ul>
+    </li>
+    <li><p>If you are not already using Java 8 in your project, please include the following code into your application&#39;s &#39;build.gradle&#39; file.</p>
+        <pre><code> android {
+     compileOptions {
+         sourceCompatibility JavaVersion<span class="hljs-selector-class">.VERSION_1_8</span>
+         targetCompatibility JavaVersion<span class="hljs-selector-class">.VERSION_1_8</span>
+     }
+ }
+</code></pre></li>
 </ol>
-
-<h2 id="integratingintonativeapps">Integrating into Native Apps</h2>
-
+<h2 id="integrating-into-native-apps">Integrating into Native Apps</h2>
 <blockquote>
-    <p><strong>NOTE</strong> If you are using an older version of the Android Gradle Plugin and encountering UnsatisfiedLinkErrors in the course of your testing, you may need to add the following to your ProGuard configuration:</p>
-</blockquote>
-<pre><code>
-    -keep public class com.iovation.mobile.android.details.RP {
-        public native java.lang.String a();
-        public native java.lang.String b();
-    }
-</code></pre>
-
+    <p><strong>NOTE</strong> If you are using an older version of the Android Gradle Plugin and encounter UnsatisfiedLinkErrors in the course of your testing, you may need to add the following to your ProGuard configuration:</p>
+    <pre><code>```
+-keep <span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">com</span>.<span class="hljs-title">iovation</span>.<span class="hljs-title">mobile</span>.<span class="hljs-title">android</span>.<span class="hljs-title">details</span>.<span class="hljs-title">RP</span> </span>{
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">native</span> java.lang.<span class="hljs-function">String <span class="hljs-title">a</span><span class="hljs-params">()</span></span>;
+    <span class="hljs-keyword">public</span> <span class="hljs-keyword">native</span> java.lang.<span class="hljs-function">String <span class="hljs-title">b</span><span class="hljs-params">()</span></span>;
+}
+```
+</code></pre></blockquote>
 <p>To integrate into native apps:</p>
-
 <ol>
-<li><p>In your Application class, import the <code>FraudForceManager</code> and <code>FraudForceConfiguration</code> objects.</p>
-
-<pre><code>import com.iovation.mobile.android.FraudForceConfiguration;
-import com.iovation.mobile.android.FraudForceManager;
-</code></pre></li>
-<li><p>Create a configuration object with your subscriber key, and enable or disable network calls to iovation servers. Entering the subscriber key is strongly recommended for all integrations, and it is required for network connections.</p>
-
-<blockquote>
-<p><strong>NOTE</strong> Please review the Network Calls section of this document before enabling network calls.</p>
-</blockquote>
-
-<blockquote>
-<p><strong>IMPORTANT</strong> Please contact your iovation customer success team representative to receive your subscriber key.</p>
-</blockquote>
-
-<pre><code>FraudForceConfiguration configuration = new FraudForceConfiguration.Builder()
-    .subscriberKey([YOUR-SUBSCRIBER-KEY-HERE])
-    .enableNetworkCalls(true) // Defaults to false if left out of configuration
-    .build();
-</code></pre></li>
-<li><p>Initialize the FraudForceManager class using the generated FraudForceConfiguration object, and the application context.</p>
-
-<pre><code>FraudForceManager fraudForceManager = FraudForceManager.getInstance();
-fraudForceManager.initialize(configuration, context);
-</code></pre></li>
-<li><p>Call the <code>refresh()</code> method in the same Activity or Fragment where <code>getBlackbox()</code> will be called. The integrating application only needs to call this method on the Fragments where the <code>getBlackbox()</code> method will be called.</p>
-
-<blockquote>
-<p><strong>NOTE</strong>: This method calls updates the geolocation and network information, if enabled.</p>
-<p><strong>NOTE</strong>: As with initialization, pass the application context when refreshing.</p>
-</blockquote>
-
-<pre><code>FraudForceManager.getInstance().refresh(context);
-</code></pre></li>
-<li><p>Do one of the following to generate the blackbox:</p>
-
-<ul>
-<li>To build a blackbox <strong>asynchronously</strong>, create an AsyncTask object to generate the blackbox off the main thread.</li>
-</ul>
-
-<pre><code>private class FraudForceThread extends AsyncTask&lt;Void, Void, String&gt; {
-    @Override
-    protected String doInBackground(Void... voids) {
-        return FraudForceManager.getInstance().getBlackbox(context);
-    }
-
-    @Override
-    protected void onPostExecute(String blackbox) {
-        // Integrator's code to store the blackbox
-    }
-}
-</code></pre>
-
-<ul>
-<li>Then execute the FraudForceThread object to get the blackbox.</li>
-</ul>
-
-<pre><code>new FraudForceThread().execute();
-</code></pre>
-
-<ul>
-<li>To build a blackbox <strong>synchronously</strong>, call the <code>getBlackbox(Context context)</code> function on a FraudForceManager object.</li>
-</ul>
-
-<pre><code>String blackbox = FraudForceManager.getInstance().getBlackbox(context);
+    <li><p>In your Application class, import the <code>FraudForceManager</code> and <code>FraudForceConfiguration</code> objects.</p>
+        <p> Java    </p>
+        <pre><code> <span class="hljs-selector-tag">import</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.iovation</span><span class="hljs-selector-class">.mobile</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.FraudForceConfiguration</span>;
+ <span class="hljs-selector-tag">import</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.iovation</span><span class="hljs-selector-class">.mobile</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.FraudForceManager</span>;
+</code></pre><p> Kotlin</p>
+        <pre><code> import com<span class="hljs-selector-class">.iovation</span><span class="hljs-selector-class">.mobile</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.FraudForceConfiguration</span>
+ import com<span class="hljs-selector-class">.iovation</span><span class="hljs-selector-class">.mobile</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.FraudForceManager</span>
 </code></pre></li>
 </ol>
+<ol>
+    <li><p>Create a configuration object with your subscriber key, and enable or disable network calls to TransUnion servers. Entering the subscriber key is strongly recommended for all integrations, and it is required for network connections.</p>
+        <blockquote>
+            <p><strong>NOTE</strong> Please review the Network Calls section of this document before enabling network calls.</p>
+            <p><strong>IMPORTANT</strong> Please contact your TransUnion customer success team representative to receive your subscriber key.</p>
+        </blockquote>
+        <p> Java</p>
+        <pre><code> FraudForceConfiguration <span class="hljs-keyword">configuration</span> = <span class="hljs-keyword">new</span> FraudForceConfiguration.Builder()
+     .subscriberKey([YOUR-SUBSCRIBER-KEY-HERE])
+     .enableNetworkCalls(<span class="hljs-literal">true</span>) // Defaults <span class="hljs-keyword">to</span> <span class="hljs-literal">false</span> <span class="hljs-keyword">if</span> left <span class="hljs-keyword">out</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">configuration</span>
+     .build();
+</code></pre><p> Kotlin</p>
+        <pre><code> val configuration = FraudForceConfiguration.Builder()
+<span class="hljs-meta">         .subscriberKey</span>([YOUR-SUBSCRIBER-KEY-HERE])
+<span class="hljs-meta">         .enableNetworkCalls</span>(true)
+<span class="hljs-meta">         .build</span>()
+</code></pre></li>
+    <li><p>Initialize the FraudForceManager class using the generated FraudForceConfiguration object, and the application context.</p>
+        <p> Java</p>
+        <pre><code> FraudForceManager fraudForceManager = FraudForceManager.<span class="hljs-keyword">INSTANCE;
+</span> fraudForceManager.initialize(configuration, <span class="hljs-built_in">context</span>)<span class="hljs-comment">;</span>
+</code></pre><p> Kotlin</p>
+        <pre><code> <span class="hljs-selector-tag">FraudForceManager</span><span class="hljs-selector-class">.initialize</span>(<span class="hljs-selector-tag">configuration</span>, <span class="hljs-selector-tag">applicationContext</span>)
+</code></pre></li>
+    <li><p>Call the <code>refresh()</code> method in the same Activity/Fragment/ViewModel where <code>getBlackbox()</code> will be called. The integrating application only needs to call this method on the Fragments where the <code>getBlackbox()</code> method will be called.</p>
+        <blockquote>
+            <p><strong>NOTE</strong>: This method calls updates the geolocation and network information, if enabled.</p>
+            <p><strong>NOTE</strong>: As with initialization, pass the application context when refreshing.</p>
+        </blockquote>
+        <p> Java</p>
+        <pre><code> <span class="hljs-selector-tag">FraudForceManager</span><span class="hljs-selector-class">.INSTANCE</span><span class="hljs-selector-class">.refresh</span>(<span class="hljs-selector-tag">context</span>);
+</code></pre><p> Kotlin</p>
+        <pre><code> <span class="hljs-selector-tag">FraudForceManager</span><span class="hljs-selector-class">.refresh</span>(<span class="hljs-selector-tag">applicationContext</span>)
+</code></pre></li>
+    <li><p>To generate the blackbox, call the getBlackbox(Context context) function on an instance of FraudForceManager. This method is a <strong>blocking</strong> call so it is <strong>recommended</strong> to call it on a background thread/coroutine.</p>
+        <p> Java</p>
+        <pre><code> <span class="hljs-keyword">String </span><span class="hljs-keyword">blackbox </span>= FraudForceManager.INSTANCE.getBlackbox(context)<span class="hljs-comment">;</span>
+</code></pre><p> Kotlin</p>
+        <pre><code> val <span class="hljs-keyword">blackbox </span>: <span class="hljs-keyword">String </span>= FraudForceManager.getBlackbox(applicationContext)
+</code></pre></li>
+    <li><p>To generate the blackbox using a coroutine, declare the desired scope and call the getBlackbox(Context context) function on an instance of FraudForceManager. You can use the withContext(context: CoroutineContext) suspend function to utilize the blackbox data in another scope.</p>
+        <p> Kotlin Coroutines Example</p>
+        <pre><code> <span class="hljs-keyword">private</span> val uiScope = CoroutineScope(Dispatchers.IO)
 
-<h2 id="integratingintohybridapps">Integrating into Hybrid Apps</h2>
-
-<h3 id="hybridappworkflowoverview">Hybrid App Workflow Overview</h3>
-
+ uiScope.launch {
+     <span class="hljs-params">...</span>
+     val blackbox : <span class="hljs-built_in">String</span> = FraudForceManager.getBlackbox(applicationContext)
+     withContext(Dispatchers.Main) {
+         <span class="hljs-params">...</span>
+         useBlackbox(blackbox)
+     }
+ }
+</code></pre></li>
+</ol>
+<h2 id="integrating-into-hybrid-apps">Integrating into Hybrid Apps</h2>
+<h3 id="hybrid-app-workflow-overview">Hybrid App Workflow Overview</h3>
 <p>Integrate into hybrid apps by implementing the following workflow for collecting and sending blackboxes:</p>
-
 <ol>
-<li><p>An HTML page loads in a WebView.</p></li>
-<li><p>The user submits a transaction on the HTML page by submitting a form or completing another action. </p></li>
-<li><p>This calls the <code>inject_bb</code> function, which creates a hidden iframe that calls the <code>iov://</code> URL. The iframe then deletes itself.</p></li>
-<li><p>The <code>shouldOverrideUrlLoading</code> function inside of the WebView object in Java is called. This function detects the <code>iov://blackbox/fill#dom_id</code> URL.The <code>dom_id</code> is the ID of the object on the HTML page where the blackbox will be written, such as a hidden form field.</p></li>
-<li><p>The <code>shouldOverrideUrlLoading</code> function runs JavaScript that automatically injects the blackbox into that object.</p></li>
+    <li><p>An HTML page loads in a WebView.</p>
+    </li>
+    <li><p>The user submits a transaction on the HTML page by submitting a form or completing another action. </p>
+    </li>
+    <li><p>This calls the <code>inject_bb</code> function, which creates a hidden iframe that calls the <code>iov://</code> URL. The iframe then deletes itself.</p>
+    </li>
+    <li><p>The <code>shouldOverrideUrlLoading</code> function inside of the WebView object in Java is called. This function detects the <code>iov://blackbox/fill#dom_id</code> URL.The <code>dom_id</code> is the ID of the object on the HTML page where the blackbox will be written, such as a hidden form field.</p>
+    </li>
+    <li><p>The <code>shouldOverrideUrlLoading</code> function runs JavaScript that automatically injects the blackbox into that object.</p>
+    </li>
 </ol>
-
-<h3 id="implementinghybridappsupport">Implementing Hybrid App Support</h3>
-
+<h3 id="implementing-hybrid-app-support">Implementing Hybrid App Support</h3>
 <ol>
-<li><p>In your Application class, import the <code>FraudForceManager</code> and <code>FraudForceConfiguration</code> objects.</p>
-
-<pre><code>import com.iovation.mobile.android.FraudForceConfiguration;
-import com.iovation.mobile.android.FraudForceManager;
+    <li><p>In your Application class, import the <code>FraudForceManager</code> and <code>FraudForceConfiguration</code> objects.</p>
+        <pre><code> <span class="hljs-selector-tag">import</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.iovation</span><span class="hljs-selector-class">.mobile</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.FraudForceConfiguration</span>;
+ <span class="hljs-selector-tag">import</span> <span class="hljs-selector-tag">com</span><span class="hljs-selector-class">.iovation</span><span class="hljs-selector-class">.mobile</span><span class="hljs-selector-class">.android</span><span class="hljs-selector-class">.FraudForceManager</span>;
 </code></pre></li>
-<li><p>Create a configuration object with your subscriber key, and enable or disable network calls to iovation servers. Entering the subscriber key is strongly recommended for all integrations, and it is required for network connections.</p>
-
-<blockquote>
-<p><strong>NOTE</strong> Please review the Network Calls section of this document before enabling network calls.</p>
-</blockquote>
-
-<pre><code>FraudForceConfiguration configuration = new FraudForceConfiguration.Builder()
-    .subscriberKey([YOUR-SUBSCRIBER-KEY-HERE])
-    .enableNetworkCalls(true) // Defaults to false if left out of configuration
-    .build();
+    <li><p>Create a configuration object with your subscriber key, and enable or disable network calls to TransUnion servers. Entering the subscriber key is strongly recommended for all integrations, and it is required for network connections.</p>
+        <blockquote>
+            <p><strong>NOTE</strong> Please review the Network Calls section of this document before enabling network calls.</p>
+        </blockquote>
+        <pre><code> FraudForceConfiguration <span class="hljs-keyword">configuration</span> = <span class="hljs-keyword">new</span> FraudForceConfiguration.Builder()
+     .subscriberKey([YOUR-SUBSCRIBER-KEY-HERE])
+     .enableNetworkCalls(<span class="hljs-literal">true</span>) // Defaults <span class="hljs-keyword">to</span> <span class="hljs-literal">false</span> <span class="hljs-keyword">if</span> left <span class="hljs-keyword">out</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">configuration</span>
+     .build();
 </code></pre></li>
-<li><p>Initialize the FraudForceManager class using the generated FraudForceConfiguration object, and the application context.</p>
-
-<pre><code>FraudForceManager fraudForceManager = FraudForceManager.getInstance();
-fraudForceManager.initialize(configuration, context);
+    <li><p>Initialize the FraudForceManager class using the generated FraudForceConfiguration object, and the application context.</p>
+        <pre><code> FraudForceManager fraudForceManager = FraudForceManager.<span class="hljs-keyword">INSTANCE;
+</span> fraudForceManager.initialize(configuration, <span class="hljs-built_in">context</span>)<span class="hljs-comment">;</span>
 </code></pre></li>
-<li><p>In your WebView Activity&#8217;s <code>onCreate()</code> function, set your WebView&#8217;s <code>shouldOverrideUrlLoading()</code> function, as well as the <code>onPageStarted()</code> function.</p>
-
-<pre><code>wv.setWebViewClient(new WebViewClient() {
+    <li><p>In your WebView Activity&#39;s <code>onCreate()</code> function, set your WebView&#39;s <code>shouldOverrideUrlLoading()</code> function, as well as the <code>onPageStarted()</code> function.</p>
+        <pre><code>wv.setWebViewClient(<span class="hljs-keyword">new</span> WebViewClient() {
     @Override
-    public void onPageStarted(WebView view, String url, Bitmap favicon) {
-        FraudForceManager.getInstance().refresh(getContext());
-        super.onPageStarted(view, url, favicon);
+    public <span class="hljs-keyword">void</span> onPageStarted(WebView view, <span class="hljs-built_in">String</span> <span class="hljs-built_in">url</span>, Bitmap favicon) {
+        FraudForceManager.INSTANCE.refresh(getContext());
+        <span class="hljs-keyword">super</span>.onPageStarted(view, <span class="hljs-built_in">url</span>, favicon);
     }
 
     @Override
-    public boolean shouldOverrideUrlLoading(WebView view, String url) {
-        String[] ref = url.split(&quot;#&quot;);
-        if (url.startsWith(&quot;iov://&quot;) &amp;&amp; ref.length &gt; 1 &amp;&amp; ref[1] != null) {
-        String injectedJavascript=&quot;javascript:(function() { &quot; +
-            &quot;document.getElementById('&quot; + ref[1] + &quot;').value = '&quot;
-            + FraudForceManager.getInstance().getBlackbox(wv.getContext())
-            + &quot;';})()&quot;;
+    public boolean shouldOverrideUrlLoading(WebView view, <span class="hljs-built_in">String</span> <span class="hljs-built_in">url</span>) {
+        <span class="hljs-built_in">String</span>[] ref = <span class="hljs-built_in">url</span>.split(<span class="hljs-string">"#"</span>);
+        <span class="hljs-keyword">if</span> (<span class="hljs-built_in">url</span>.startsWith(<span class="hljs-string">"iov://"</span>) &amp;&amp; ref.length &gt; <span class="hljs-number">1</span> &amp;&amp; ref[<span class="hljs-number">1</span>] != <span class="hljs-literal">null</span>) {
+        <span class="hljs-built_in">String</span> injectedJavascript=<span class="hljs-string">"javascript:(function() { "</span> +
+            <span class="hljs-string">"document.getElementById('"</span> + ref[<span class="hljs-number">1</span>] + <span class="hljs-string">"').value = '"</span>
+            + FraudForceManager.INSTANCE.getBlackbox(wv.getContext())
+            + <span class="hljs-string">"';})()"</span>;
             wv.loadUrl(injectedJavascript);
-            return true;
+            <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
         }
-        return false;
+        <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
     }
 });
 </code></pre></li>
-<li><p>On your HTML page, include a javascript function called <code>inject_bb</code> that injects an iframe with a call to the <code>iov://</code> URL.</p>
-
-<pre><code>function inject_bb(id) {  
-	var iframe = document.createElement('IFRAME');  
-	iframe.setAttribute('src', 'iov://blackbox/fill#' + id);  
-	iframe.name=&quot;ioOut&quot;;  
-	document.documentElement.appendChild(iframe);  
-	iframe.parentNode.removeChild(iframe);  
-	iframe = null;  
+    <li><p>On your HTML page, include a javascript function called <code>inject_bb</code> that injects an iframe with a call to the <code>iov://</code> URL.</p>
+        <pre><code><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">inject_bb</span>(<span class="hljs-params">id</span>) </span>{
+    <span class="hljs-keyword">var</span> iframe = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">'IFRAME'</span>);
+    iframe.setAttribute(<span class="hljs-string">'src'</span>, <span class="hljs-string">'iov://blackbox/fill#'</span> + id);
+    iframe.name=<span class="hljs-string">"ioOut"</span>;
+    <span class="hljs-built_in">document</span>.documentElement.appendChild(iframe);
+    iframe.parentNode.removeChild(iframe);
+    iframe = <span class="hljs-literal">null</span>;
 }
 </code></pre></li>
-<li><p>You must inject the blackbox into a DOM object for collection. To do this, call the <code>inject_bb</code> function with the ID of the DOM object, which will automatically call the <code>shouldOverrideUrlLoading()</code> function. For example, set <code>ID</code> to a hidden form field where the blackbox will be stored. When the form containing the field is submitted, the blackbox is returned to your server back-end, and can then be sent to iovation to evaluate along with the transaction.</p></li>
+    <li><p>You must inject the blackbox into a DOM object for collection. To do this, call the <code>inject_bb</code> function with the ID of the DOM object, which will automatically call the <code>shouldOverrideUrlLoading()</code> function. For example, set <code>ID</code> to a hidden form field where the blackbox will be stored. When the form containing the field is submitted, the blackbox is returned to your server back-end, and can then be sent to TransUnion to evaluate along with the transaction.</p>
+    </li>
 </ol>
-
-<h2 id="networkcalls">Network Calls</h2>
-
-<p>This release introduces the ability for the android SDK to make a network call to iovation&#8217;s service. This enables additional functionality in the FraudForce SDK, including:</p>
-
+<h2 id="network-calls">Network Calls</h2>
+<p>The SDK includes the ability to make a network call to TransUnion TruValidate&#39;s service. This enables additional functionality in the Device Risk SDK, including:</p>
 <ul>
-<li> Collect additional network information</li>
-<li> Configuration updates to root detection</li>
-<li> Collect information on potential high-risk applications on the device</li>
+    <li>Collect additional network information</li>
+    <li>Configuration updates to root detection</li>
+    <li><p>Collect information on potential high-risk applications on the device</p>
+        <p>By default this functionality is disabled and will need to be enabled in the configuration object. Usage of this feature requires a subscriber key be provided. Please contact your TransUnion client representative to acquire a subscriber key.</p>
+    </li>
 </ul>
-
-<p>By default this functionality is disabled and will need to be enabled in the configuration object. Usage of this feature requires a subscriber key be provided. Please contact your iovation client representative to acquire a subscriber key.</p>
-
-<h2 id="compilingthesampleappinandroidstudio">Compiling The Sample App in Android Studio</h2>
-
+<h2 id="compiling-the-sample-app-in-android-studio">Compiling The Sample App in Android Studio</h2>
+<p>1 In Android Studio, select File | Open or click <strong>Open Existing Android Studio Project</strong> from the quick-start screen.</p>
 <ol>
-<li><p>In Android Studio, select File | Open or click <strong>Open Existing Android Studio Project</strong> from the quick-start screen.</p></li>
-<li><p>From the directory where you unzipped fraudforce-lib-release-4.3.0.zip, open the <strong>android-studio-sample-app</strong> directory.</p></li>
-<li><p>In the project navigation view, open <code>src/main/java/com/iovation/mobile/android/sample/MainActivity.java</code></p></li>
-<li><p>Right-click the file editing view and select <em>Run Main Activity</em>.</p>
-
-<ul>
-<li><strong>IMPORTANT!</strong> If the option to run the module does not appear, select FILE -&gt; PROJECT STRUCTURE and open the Modules panel. From there, set the Module SDK drop-down to your target Android SDK version.</li>
-</ul>
-
-<p>Alternatively, you can right-click on the build.gradle file, and select <strong>Run &#8216;build&#8217;</strong>.</p></li>
-<li><p>Select either an attached physical device, or an Android virtual device to run the app on. The app should now compile and launch.</p></li>
-<li><p>When the app compiles successfully, you will see a view with a button that allows you to display a blackbox.</p></li>
+    <li><p>From the directory where you unzipped fraudforce-lib-release-5.2.0.zip or cloned the repo, open the <strong>android-studio-sample-app</strong> directory.</p>
+    </li>
+    <li><p>In the project navigation view, open <code>app/src/main/java/com/iovation/mobile/android/sample/MainActivity.java</code> to run the Java sample app. To run the Kotlin sample app, open <code>kotlinApp/src/main/java/com/iovation/mobile/android/sample/MainActivity.kt</code>.</p>
+    </li>
+    <li><p>Right-click the file editing view and select <em>Run Main Activity</em>.</p>
+        <ul>
+            <li><p><strong>IMPORTANT!</strong> If the option to run the module does not appear, select FILE -&gt; PROJECT STRUCTURE and open the Modules panel. From there, set the Module SDK drop-down to your target Android SDK version.</p>
+                <p>Alternatively, you can right-click on the build.gradle file, and select <strong>Run &#39;build&#39;</strong>.</p>
+            </li>
+        </ul>
+    </li>
+    <li><p>Select either an attached physical device, or an Android virtual device to run the app on. The app should now compile and launch.</p>
+    </li>
+    <li><p>When the app compiles successfully, you will see a view with a button that allows you to display a blackbox.</p>
+    </li>
 </ol>
-
 <h2 id="changelog">Changelog</h2>
-
-<h3 id="4.3.0">4.3.0</h3>
-
+<h3 id="5-2-0">5.2.0</h3>
 <ul>
-    <li><p>Minimum supported Android version updated, from 16 to 21.</p></li>
-    <li><p>Update target and compilation SDK versions to 30.</p></li>
-    <li><p>Bug fixes for NPEs sometimes encountered during asynchronous calls to initialize and/or refresh.</p></li>
+    <li>Update target SDK to 33.</li>
+    <li>Adjusted collection details.</li>
 </ul>
-
-<h3 id="4.2.0">4.2.0</h3>
-
+<h3 id="5-1-0">5.1.0</h3>
 <ul>
-    <li><p>Several obfuscation-related updates/fixes, including preservation of base package.</p></li>
-    <li><p>Update target SDK to 29.</p></li>
+    <li>Adjusted collection details.</li>
 </ul>
-
-
-<h3 id="4.1.1">4.1.1</h3>
-
+<h3 id="5-0-0">5.0.0</h3>
 <ul>
-    <li><p>Updated compileSdkVersion to 29.</p></li>
-    <li><p>Behavioral changes for apps targeting API 29.</p></li>
+    <li><strong>Java 8 is now required.</strong></li>
+    <li><strong>The SDK has migrated to Kotlin (1.5.30).</strong><ul>
+        <li>If your application does not already include the Kotlin standard library (i.e. your application</li>
+        <li>is written entirely in Java), then you must include the kotlin stdlib as a dependency.</li>
+    </ul>
+    </li>
+    <li><strong>FraudForceManager can be accessed as a Kotlin object or via FraudForceManager.INSTANCE when using Java).</strong></li>
+    <li>Targeting Android 12 (API 31).</li>
+    <li>Changes to cryptography uses.</li>
+    <li>Adjusted collection details.</li>
+    <li>Improvements to detail caching.</li>
+    <li>Fixed Proguard rules.</li>
 </ul>
-
-<h3 id="4.1.0">4.1.0</h3>
-
+<h3 id="4-3-2">4.3.2</h3>
 <ul>
-    <li><p>Adjusted recognition details.</p></li>
+    <li>Adjusted root detection.</li>
 </ul>
-
-<h3 id="4.0.0">4.0.0</h3>
-
+<h3 id="4-3-1">4.3.1</h3>
 <ul>
-    <li><p>Enhanced support for Android 9.0 Pie.</p></li>
-    <li><p>Further improvements to location data collection process.</p></li>
-    <li><p>Resolved Google Play alerts regarding encryption methods.</p></li>
+    <li>Update target and compilation SDK versions to 31.</li>
+    <li>Adjusted collection details.</li>
+    <li>Compatible with the new bluetooth changes/permissions in Android 12. </li>
+    <li>Fixed crashes on devices running below SDK version 24.</li>
 </ul>
-
-<h3 id="3.1.0">3.1.0</h3>
-
+<h3 id="4-3-0">4.3.0</h3>
 <ul>
-<li><p>Support for Android 9.0 Pie.</p></li>
-<li><p>Fix for issue related to the Turkish character set.</p></li>
-<li><p>Improved location data collection process.</p></li>
+    <li>Minimum supported Android version updated, from 16 to 21.</li>
+    <li>Update target and compilation SDK versions to 30.</li>
+    <li>Bug fixes for NPEs sometimes encountered during asynchronous calls to initialize and/or refresh.</li>
 </ul>
-
-<h3 id="3.0.1">3.0.1</h3>
-
+<h3 id="4-2-0">4.2.0</h3>
 <ul>
-<li><p>Improved blackbox data collection performance.</p></li>
-<li><p>More efficient network calls to iovation.</p></li>
+    <li><p>Several obfuscation-related updates/fixes, including preservation of base package.</p>
+    </li>
+    <li><p>Update target SDK to 29</p>
+    </li>
 </ul>
-
-<h3 id="3.0.0">3.0.0</h3>
-
+<h3 id="4-1-1">4.1.1</h3>
 <ul>
-<li><p>New API objects, <code>FraudForceConfiguration</code> and <code>FraudForceManager</code>. Prior API objects have been removed.</p></li>
-<li><p>Compatibility with Android 8.0.</p></li>
-<li><p>Introduced network calls back to iovation service for additional functionality.</p></li>
-<li><p>Dropped support for Android API level 8 through API level 15.</p></li>
+    <li><p>Updated compileSdkVersion to 29.</p>
+    </li>
+    <li><p>Behavioral changes for apps targeting API 29.</p>
+    </li>
 </ul>
-
-<h3 id="2.3.3">2.3.3</h3>
-
+<h3 id="4-1-0">4.1.0</h3>
 <ul>
-<li>Compatibility with Android 7.0.</li>
+    <li>Adjusted recognition details.</li>
 </ul>
-
-<h3 id="2.3.2">2.3.2</h3>
-
+<h3 id="4-0-0">4.0.0</h3>
 <ul>
-<li>Improved error handling.</li>
+    <li><p>Enhanced support for Android 9.0 Pie.</p>
+    </li>
+    <li><p>Further improvements to location data collection process.</p>
+    </li>
+    <li><p>Resolved Google Play alerts regarding encryption methods.</p>
+    </li>
 </ul>
-
-<h3 id="2.3.1">2.3.1</h3>
-
+<h3 id="3-1-0">3.1.0</h3>
 <ul>
-<li><p>Improved permission checking.</p></li>
-<li><p>Fixes crash with invalid locale.</p></li>
-<li><p>Fixes error with Bluetooth permission.</p></li>
-<li><p>More robust error handling.</p></li>
+    <li><p>Support for Android 9.0 Pie.</p>
+    </li>
+    <li><p>Fix for issue related to the Turkish character set.</p>
+    </li>
+    <li><p>Improved location data collection process.</p>
+    </li>
 </ul>
-
-<h3 id="2.3.0">2.3.0</h3>
-
+<h3 id="3-0-1">3.0.1</h3>
 <ul>
-<li><p>Compatibility with Android 6.0 permission system.</p></li>
-<li><p>Enhanced recognition with additional details added in Android 6.0.</p></li>
-<li><p>Enhanced geolocation services with mock location detection capabilities.</p></li>
-<li><p>Enhanced carrier detection and home carrier detection.</p></li>
+    <li><p>Improved blackbox data collection performance.</p>
+    </li>
+    <li><p>More efficient network calls to iovation.</p>
+    </li>
 </ul>
-
-<h3 id="2.2.0">2.2.0</h3>
-
+<h3 id="3-0-0">3.0.0</h3>
 <ul>
-<li>Compatibility with older versions of Android build-tools.</li>
+    <li><p>New API objects, <code>FraudForceConfiguration</code> and <code>FraudForceManager</code>. Prior API objects have been removed.</p>
+    </li>
+    <li><p>Compatibility with Android 8.0.</p>
+    </li>
+    <li><p>Introduced network calls back to iovation service for additional functionality.</p>
+    </li>
+    <li><p>Dropped support for Android API level 8 through API level 15.</p>
+    </li>
 </ul>
-
-<h3 id="2.1.0">2.1.0</h3>
-
+<h3 id="2-3-3">2.3.3</h3>
 <ul>
-<li>Enhanced recognition with the collection of additional details.</li>
+    <li>Compatibility with Android 7.0.</li>
 </ul>
-
-<h3 id="2.0.1">2.0.1</h3>
-
+<h3 id="2-3-2">2.3.2</h3>
 <ul>
-<li>Fix bug with permissions that would crash applications.</li>
+    <li>Improved error handling.</li>
 </ul>
-
-<h3 id="2.0.0">2.0.0</h3>
-
+<h3 id="2-3-1">2.3.1</h3>
 <ul>
-<li><p>New API method, <code>getBlackbox</code>, handles low-priority asynchronous collection of device data. The <code>ioBegin</code> method remains for backwards compatibility.</p></li>
-<li><p>Expanded the android-studio-sample-app with a WebView integration example.</p></li>
-<li><p>Added WebView integration instructions.</p></li>
+    <li><p>Improved permission checking.</p>
+    </li>
+    <li><p>Fixes crash with invalid locale.</p>
+    </li>
+    <li><p>Fixes error with Bluetooth permission.</p>
+    </li>
+    <li><p>More robust error handling.</p>
+    </li>
 </ul>
-
+<h3 id="2-3-0">2.3.0</h3>
+<ul>
+    <li><p>Compatibility with Android 6.0 permission system.</p>
+    </li>
+    <li><p>Enhanced recognition with additional details added in Android 6.0.</p>
+    </li>
+    <li><p>Enhanced geolocation services with mock location detection capabilities.</p>
+    </li>
+    <li><p>Enhanced carrier detection and home carrier detection.</p>
+    </li>
+</ul>
+<h3 id="2-2-0">2.2.0</h3>
+<ul>
+    <li>Compatibility with older versions of Android build-tools.</li>
+</ul>
+<h3 id="2-1-0">2.1.0</h3>
+<ul>
+    <li>Enhanced recognition with the collection of additional details.</li>
+</ul>
+<h3 id="2-0-1">2.0.1</h3>
+<ul>
+    <li>Fix bug with permissions that would crash applications.</li>
+</ul>
+<h3 id="2-0-0">2.0.0</h3>
+<ul>
+    <li><p>New API method, <code>getBlackbox</code>, handles low-priority asynchronous collection of device data. The <code>ioBegin</code> method remains for backwards compatibility.</p>
+    </li>
+    <li><p>Expanded the android-studio-sample-app with a WebView integration example.</p>
+    </li>
+    <li><p>Added WebView integration instructions.</p>
+    </li>
+</ul>
 </body>
 </html>
-

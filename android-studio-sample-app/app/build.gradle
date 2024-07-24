@@ -6,9 +6,9 @@ android {
     defaultConfig {
         applicationId "com.iovation.mobile.android.sample.sampleapp"
         minSdkVersion 21
-        targetSdkVersion 31
-        versionCode 11
-        versionName "5.1.0"
+        targetSdkVersion 33
+        versionCode 12
+        versionName "5.2.0"
     }
     buildTypes {
         release {
@@ -27,6 +27,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation files('libs/fraudforce-lib-release-5.1.0.aar')
+    implementation files('libs/fraudforce-lib-release-5.2.0.aar')
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.30"
 }
