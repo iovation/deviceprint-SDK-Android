@@ -24,11 +24,11 @@
     <tbody>
     <tr>
         <td><strong>SDK Filename</strong></td>
-        <td>fraudforce-lib-release-5.2.1.aar</td>
+        <td>fraudforce-lib-release-5.2.2.aar</td>
     </tr>
     <tr>
         <td><strong>Version</strong></td>
-        <td>5.2.1</td>
+        <td>5.2.2</td>
     </tr>
     <tr>
         <td><strong>Package</strong></td>
@@ -70,18 +70,18 @@
     <p><strong>NOTE</strong> If the permissions listed are not required by the application, the values collected using those permissions will be ignored. The permissions are not required to obtain a usable blackbox, but they do help obtain some unique device information.</p>
     <p><strong>NOTE</strong> Android 10 introduced the ACCESS_BACKGROUND_LOCATION permission, protected at the dangerous level as is the case for ACCESS_FINE_LOCATION. Refer to the official Android documentation for when to incorporate this permission.</p>
 </blockquote>
-<p>Version 5.2.1 of the TruValidate Device Risk SDK for Android supports Android 5.0 or higher.</p>
+<p>Version 5.2.2 of the TruValidate Device Risk SDK for Android supports Android 5.0 or higher.</p>
 <h2 id="installing-the-device-risk-sdk-for-android">Installing the Device Risk SDK for Android</h2>
 <ol>
-    <li><p>Download iovation-android-sdk-5.2.1.zip from here: <a href="https://github.com/iovation/deviceprint-SDK-Android">iovation Mobile SDK for Android</a>. </p>
+    <li><p>Download iovation-android-sdk-5.2.2.zip from here: <a href="https://github.com/iovation/deviceprint-SDK-Android">iovation Mobile SDK for Android</a>. </p>
     </li>
-    <li><p>Unzip iovation-android-sdk-5.2.1.zip.</p>
+    <li><p>Unzip iovation-android-sdk-5.2.2.zip.</p>
     </li>
     <li><p>Depending on your IDE, do one of the following:</p>
         <ul>
             <li><p>In <strong>Maven</strong>, deploy the AAR file to your local Maven repository, using maven-deploy. For more information, see <a href="http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html">Guide to installing 3rd party JARs</a>.</p>
             </li>
-            <li><p>If you are using <strong>Gradle</strong>, add the <em>fraudforce-lib-release-5.2.1.aar</em> file to your application module&#39;s libs directory. Then, edit the <em>build.gradle</em> file in order to add the libs directory as a flat-file repository to the <code>buildscript</code> and <code>repository</code> sections. This makes the fraudforce-lib-release-5.2.1.aar file accessible to Gradle.</p>
+            <li><p>If you are using <strong>Gradle</strong>, add the <em>fraudforce-lib-release-5.2.2.aar</em> file to your application module&#39;s libs directory. Then, edit the <em>build.gradle</em> file in order to add the libs directory as a flat-file repository to the <code>buildscript</code> and <code>repository</code> sections. This makes the fraudforce-lib-release-5.2.2.aar file accessible to Gradle.</p>
                 <pre><code>  <span class="hljs-section">buildscript</span> {
       <span class="hljs-section">repositories</span> {
           <span class="hljs-section">flatDir</span> {
@@ -95,15 +95,15 @@
           <span class="hljs-attribute">dirs</span> <span class="hljs-string">'libs'</span>
       }
   }
-</code></pre><p>  Also in the application module&#39;s <code>build.gradle</code> file, make sure that fraudforce-lib-release-5.2.1 is included as a dependency:</p>
+</code></pre><p>  Also in the application module&#39;s <code>build.gradle</code> file, make sure that fraudforce-lib-release-5.2.2 is included as a dependency:</p>
                 <pre><code>  <span class="hljs-selector-tag">dependencies</span> {
       ...
-      <span class="hljs-selector-tag">implementation</span>(<span class="hljs-attribute">name</span>:<span class="hljs-string">'fraudforce-lib-release-5.2.1'</span>, <span class="hljs-attribute">ext</span>:<span class="hljs-string">'aar'</span>)
+      <span class="hljs-selector-tag">implementation</span>(<span class="hljs-attribute">name</span>:<span class="hljs-string">'fraudforce-lib-release-5.2.2'</span>, <span class="hljs-attribute">ext</span>:<span class="hljs-string">'aar'</span>)
   }
 </code></pre><p>  Alternatively, you can include the dependency without exposing your libs folder as a repository by declaring it in the module&#39;s <code>build.gradle</code> file as follows:</p>
                 <pre><code>  dependencies {
       ...
-      <span class="hljs-keyword">implementation</span> files(<span class="hljs-string">'libs/fraudforce-lib-release-5.2.1.aar'</span>)
+      <span class="hljs-keyword">implementation</span> files(<span class="hljs-string">'libs/fraudforce-lib-release-5.2.2.aar'</span>)
   }
 </code></pre><p>  Save the <code>build.gradle</code> file.</p>
             </li>
@@ -275,7 +275,7 @@
 <h2 id="compiling-the-sample-app-in-android-studio">Compiling The Sample App in Android Studio</h2>
 <p>1 In Android Studio, select File | Open or click <strong>Open Existing Android Studio Project</strong> from the quick-start screen.</p>
 <ol>
-    <li><p>From the directory where you unzipped fraudforce-lib-release-5.2.1.zip or cloned the repo, open the <strong>android-studio-sample-app</strong> directory.</p>
+    <li><p>From the directory where you unzipped fraudforce-lib-release-5.2.2.zip or cloned the repo, open the <strong>android-studio-sample-app</strong> directory.</p>
     </li>
     <li><p>In the project navigation view, open <code>app/src/main/java/com/iovation/mobile/android/sample/MainActivity.java</code> to run the Java sample app. To run the Kotlin sample app, open <code>kotlinApp/src/main/java/com/iovation/mobile/android/sample/MainActivity.kt</code>.</p>
     </li>
@@ -292,7 +292,11 @@
     </li>
 </ol>
 <h2 id="changelog">Changelog</h2>
-<h3 id="5-2-0">5.2.1</h3>
+<h3 id="5-2-2">5.2.2</h3>
+<ul>
+    <li>Bug fix to handle abstract method exception.</li>
+</ul>
+<h3 id="5-2-1">5.2.1</h3>
 <ul>
     <li>Update target SDK to 33.</li>
     <li>Adjusted collection details.</li>

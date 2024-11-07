@@ -1,4 +1,2 @@
 ### What's new
-- Update target SDK to 33.
-- Adjusted collection details.
-- Bug fix for collection issue.
+- Bug fix to handle abstract method exception.
