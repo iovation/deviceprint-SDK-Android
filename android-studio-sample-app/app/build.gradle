@@ -5,6 +5,7 @@ android {
 
     defaultConfig {
         applicationId "com.iovation.mobile.android.sample.sampleapp"
+        namespace "com.iovation.mobile.android.sample.sampleapp"
         minSdkVersion 21
         targetSdkVersion 33
         versionCode 14

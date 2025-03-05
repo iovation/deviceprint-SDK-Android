@@ -8,6 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.iovation.mobile.android.sample.kotlinApp"
+        namespace "com.iovation.mobile.android.sample.kotlinApp"
         minSdk 21
         targetSdk 34
         versionCode 14
