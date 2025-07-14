@@ -18,15 +18,15 @@ The Device Risk SDK integrates with native and hybrid apps. Hybrid apps mix nati
 
 |                                 |                                                                                                        |
 |---------------------------------|--------------------------------------------------------------------------------------------------------|
-| **SDK Filename**                | fraudforce-lib-release-5.2.2.aar                                                                       |
-| **Version**                     | 5.2.2                                                                                                  |
+| **SDK Filename**                | fraudforce-lib-release-5.3.0.aar                                                                       |
+| **Version**                     | 5.3.0                                                                                                  |
 | **Package**                     | com.iovation.mobile.android.FraudForce                                                                 |
-| **Android SDK Dependencies**    | Android SDK 5.0 or higher (SDK level 21)                                                               |
+| **Android SDK Dependencies**    | Android SDK 7.0 or higher (SDK level 24)                                                               |
 | **Library Dependencies**        | None                                                                                                   |
 | **Required Permissions**        | None                                                                                                   |
 | **Optional Permissions**        | BLUETOOTH (up to Android 11), BLUETOOTH_CONNECT (starting on Android 12), CAMERA, ACCESS\_WIFI\_STATE, |
 |                                 | READ\_PHONE\_STATE, ACCESS\_FINE\_LOCATION, ACCESS\_BACKGROUND\_LOCATION,                              |
-|                                 | GET\_ACCOUNTS, ACCESS\_NETWORK\_STATE                                                                  |
+|                                 | GET\_ACCOUNTS, ACCESS\_NETWORK\_STATE, DETECT\_SCREEN\_RECORDING                                       |
 | **Supported NDK Architectures** | x86, x86_64, arm64-v8a, armeabi-v7a                                                                    |
 
 > __NOTE__ Android 12 introduced the BLUETOOTH_CONNECT permission, protected at the dangerous level. Refer to the [official Android documentation](https://developer.android.com/about/versions/12/features/bluetooth-permissions) on how to include it.
@@ -37,19 +37,19 @@ The Device Risk SDK integrates with native and hybrid apps. Hybrid apps mix nati
 
 > __NOTE__ Android 10 introduced the ACCESS_BACKGROUND_LOCATION permission, protected at the dangerous level as is the case for ACCESS_FINE_LOCATION. Refer to the official Android documentation for when to incorporate this permission.
 
-Version 5.2.2 of the TruValidate Device Risk SDK for Android supports Android 5.0 or higher.
+Version 5.3.0 of the TruValidate Device Risk SDK for Android supports Android 5.0 or higher.
 
 ## Installing the Device Risk SDK for Android
 
-1. Download iovation-android-sdk-5.2.2.zip from here: [iovation Mobile SDK for Android](https://github.com/iovation/deviceprint-SDK-Android). 
+1. Download iovation-android-sdk-5.3.0.zip from here: [iovation Mobile SDK for Android](https://github.com/iovation/deviceprint-SDK-Android). 
 
-2. Unzip iovation-android-sdk-5.2.2.zip.
+2. Unzip iovation-android-sdk-5.3.0.zip.
 
 3. Depending on your IDE, do one of the following:
 
     - In __Maven__, deploy the AAR file to your local Maven repository, using maven-deploy. For more information, see [Guide to installing 3rd party JARs](http://maven.apache.org/guides/mini/guide-3rd-party-jars-local.html).
 
-    - If you are using __Gradle__, add the *fraudforce-lib-release-5.2.2.aar* file to your application module's libs directory. Then, edit the *build.gradle* file in order to add the libs directory as a flat-file repository to the `buildscript` and `repository` sections. This makes the fraudforce-lib-release-5.2.2.aar file accessible to Gradle.
+    - If you are using __Gradle__, add the *fraudforce-lib-release-5.3.0.aar* file to your application module's libs directory. Then, edit the *build.gradle* file in order to add the libs directory as a flat-file repository to the `buildscript` and `repository` sections. This makes the fraudforce-lib-release-5.3.0.aar file accessible to Gradle.
 
         ```
         buildscript {
@@ -66,12 +66,12 @@ Version 5.2.2 of the TruValidate Device Risk SDK for Android supports Android 5.
             }
         }
         ```
-        Also in the application module's `build.gradle` file, make sure that fraudforce-lib-release-5.2.2 is included as a dependency:
+        Also in the application module's `build.gradle` file, make sure that fraudforce-lib-release-5.3.0 is included as a dependency:
 	
         ```
         dependencies {
             ...
-            implementation(name:'fraudforce-lib-release-5.2.2', ext:'aar')
+            implementation(name:'fraudforce-lib-release-5.3.0', ext:'aar')
         }
         ```
 
@@ -80,18 +80,18 @@ Version 5.2.2 of the TruValidate Device Risk SDK for Android supports Android 5.
         ```
         dependencies {
             ...
-            implementation files('libs/fraudforce-lib-release-5.2.2.aar')
+            implementation files('libs/fraudforce-lib-release-5.3.0.aar')
         }
         ```
 		
         Save the `build.gradle` file.
 
-4. If you are not already using Java 8 in your project, please include the following code into your application's 'build.gradle' file.
+4. If you are not already using Java 11 in your project, please include the following code into your application's 'build.gradle' file.
     ```
     android {
         compileOptions {
-            sourceCompatibility JavaVersion.VERSION_1_8
-            targetCompatibility JavaVersion.VERSION_1_8
+            sourceCompatibility JavaVersion.VERSION_11
+            targetCompatibility JavaVersion.VERSION_11
         }
     }
     ```
@@ -292,7 +292,7 @@ The SDK includes the ability to make a network call to TransUnion TruValidate's 
 
 1 In Android Studio, select File | Open or click **Open Existing Android Studio Project** from the quick-start screen.
 
-2. From the directory where you unzipped fraudforce-lib-release-5.2.2.zip or cloned the repo, open the **android-studio-sample-app** directory.
+2. From the directory where you unzipped fraudforce-lib-release-5.3.0.zip or cloned the repo, open the **android-studio-sample-app** directory.
 
 3. In the project navigation view, open `app/src/main/java/com/iovation/mobile/android/sample/MainActivity.java` to run the Java sample app. To run the Kotlin sample app, open `kotlinApp/src/main/java/com/iovation/mobile/android/sample/MainActivity.kt`.
 
@@ -307,6 +307,14 @@ The SDK includes the ability to make a network call to TransUnion TruValidate's 
 6. When the app compiles successfully, you will see a view with a button that allows you to display a blackbox.
 
 ## Changelog
+### 5.3.0
+- **Java 11 is now required.**
+- **The SDK has updated Kotlin (2.0.20).**
+- Minimum SDK version supported is now 24.
+- Update target SDK to 35.
+- Adjusted collection details.
+- Additional optional permission.
+
 ### 5.2.2
 - Bug fix to handle abstract method exception.
 
