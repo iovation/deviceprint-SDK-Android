@@ -312,6 +312,7 @@ The SDK includes the ability to make a network call to TransUnion TruValidate's 
 - **The SDK has updated Kotlin (2.0.20).**
 - Minimum SDK version supported is now 24.
 - Update target SDK to 35.
+- 16KB page size compatibility
 - Adjusted collection details.
 - Additional optional permission.
 
