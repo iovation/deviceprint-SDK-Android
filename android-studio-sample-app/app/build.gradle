@@ -8,13 +8,13 @@ android {
         namespace "com.iovation.mobile.android.sample.sampleapp"
         minSdkVersion 24
         targetSdkVersion 33
-        versionCode 15
-        versionName "5.3.0"
+        versionCode 16
+        versionName "5.4.0"
     }
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
     lintOptions {
@@ -28,6 +28,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation files('libs/fraudforce-lib-release-5.3.0.aar')
+    implementation files('libs/fraudforce-lib-release-5.4.0.aar')
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.5.30"
 }
